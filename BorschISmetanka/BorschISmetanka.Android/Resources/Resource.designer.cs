@@ -14371,40 +14371,49 @@ namespace BorschISmetanka.Droid
 			public const int secondary_text_disabled_material_light = 2131034321;
 			
 			// aapt resource value: 0x7F0500D2
-			public const int splash_backgroun = 2131034322;
+			public const int splash_backg = 2131034322;
 			
 			// aapt resource value: 0x7F0500D3
-			public const int splash_background = 2131034323;
+			public const int splash_backgroun = 2131034323;
 			
 			// aapt resource value: 0x7F0500D4
-			public const int switch_thumb_disabled_material_dark = 2131034324;
+			public const int splash_background = 2131034324;
 			
 			// aapt resource value: 0x7F0500D5
-			public const int switch_thumb_disabled_material_light = 2131034325;
+			public const int splash_basdfsdfckg = 2131034325;
 			
 			// aapt resource value: 0x7F0500D6
-			public const int switch_thumb_material_dark = 2131034326;
+			public const int splash_basdfsdfcываываkg = 2131034326;
 			
 			// aapt resource value: 0x7F0500D7
-			public const int switch_thumb_material_light = 2131034327;
+			public const int switch_thumb_disabled_material_dark = 2131034327;
 			
 			// aapt resource value: 0x7F0500D8
-			public const int switch_thumb_normal_material_dark = 2131034328;
+			public const int switch_thumb_disabled_material_light = 2131034328;
 			
 			// aapt resource value: 0x7F0500D9
-			public const int switch_thumb_normal_material_light = 2131034329;
+			public const int switch_thumb_material_dark = 2131034329;
 			
 			// aapt resource value: 0x7F0500DA
-			public const int test_mtrl_calendar_day = 2131034330;
+			public const int switch_thumb_material_light = 2131034330;
 			
 			// aapt resource value: 0x7F0500DB
-			public const int test_mtrl_calendar_day_selected = 2131034331;
+			public const int switch_thumb_normal_material_dark = 2131034331;
 			
 			// aapt resource value: 0x7F0500DC
-			public const int tooltip_background_dark = 2131034332;
+			public const int switch_thumb_normal_material_light = 2131034332;
 			
 			// aapt resource value: 0x7F0500DD
-			public const int tooltip_background_light = 2131034333;
+			public const int test_mtrl_calendar_day = 2131034333;
+			
+			// aapt resource value: 0x7F0500DE
+			public const int test_mtrl_calendar_day_selected = 2131034334;
+			
+			// aapt resource value: 0x7F0500DF
+			public const int tooltip_background_dark = 2131034335;
+			
+			// aapt resource value: 0x7F0500E0
+			public const int tooltip_background_light = 2131034336;
 			
 			static Color()
 			{
