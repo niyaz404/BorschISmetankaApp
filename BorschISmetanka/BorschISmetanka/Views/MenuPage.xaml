@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BorschISmetanka.Views.MenuPage"
+             Title="Меню">
+    <Grid Margin="0,6,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>            
+        </Grid.RowDefinitions>
+        
+        <ScrollView Orientation="Horizontal" Grid.Row="0" HorizontalScrollBarVisibility="Never">
+            <StackLayout x:Name="ButtonStack" Orientation="Horizontal">
+            </StackLayout>
+        </ScrollView>
+        <ScrollView x:Name="menuSV" Grid.Row="1" Padding="10">
+            
+        </ScrollView>
+        <!--<CarouselView x:Name="productCarousel" ItemsSource="{Binding recipes_cat}" Grid.Row="1" WidthRequest="100" PeekAreaInsets="1" PositionChanged="OnPositionChange" FlowDirection="MatchParent" ItemsUpdatingScrollMode="KeepLastItemInView" Loop="True">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout BindingContext="{Binding stack}">
+                    </StackLayout>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>-->
+    </Grid>
+</ContentPage>

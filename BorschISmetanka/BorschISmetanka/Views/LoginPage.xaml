@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BorschISmetanka.Views.LoginPage"
+             Shell.NavBarIsVisible="False">
+
+    <Grid Padding="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+        </Grid.RowDefinitions>
+        <Label Text="Авторизация" HorizontalOptions="Center" Grid.Row="1" FontSize="22" FontAttributes="Bold"/>
+        <Label Text="Логин" HorizontalOptions="Center" Grid.Row="2" FontSize="18"/>
+        <Entry x:Name="loginEntry" Placeholder="Введите логин" Grid.Row="3" HorizontalOptions="Center"/>
+        <Label Text="Пароль" HorizontalOptions="Center" Grid.Row="4" FontSize="18"/>
+        <Entry x:Name="pswnEntry" Placeholder="Введите пароль" HorizontalOptions="Center" IsPassword="True" Grid.Row="5"/>
+        <Button Text="Войти" HorizontalOptions="Center" Grid.Row="6" WidthRequest="120"/>
+        <Button Text="Регистрация" HorizontalOptions="Center" Grid.Row="7" WidthRequest="120"/>
+    </Grid>
+</ContentPage>

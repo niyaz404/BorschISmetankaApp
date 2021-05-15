@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:map="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             x:Class="BorschISmetanka.Views.OrderingPage">
+    
+    <!--<ScrollView>
+        <maps:Map x:Name="frameMap"/>
+        <Frame Grid.Row="{Binding GridRowMap}"
+               Grid.RowSpan="{Binding GridRowSpanMap}"
+               Padding="0"
+               HasShadow="False"
+               BackgroundColor="Transparent"
+               IsClippedToBounds="True"
+               CornerRadius="15"
+               TranslationY="0"
+               Margin="0,0,0,-300"
+               IsVisible="{Binding VissibleMap}"
+               x:Name="frameMap">
+            <Frame.GestureRecognizers>
+                <SwipeGestureRecognizer Direction="Up"
+                                        Swiped="SwipeGestureRecognizer_SwipedUp"
+                                        Threshold="100"/>
+                <SwipeGestureRecognizer Direction="Down"
+                                        Swiped="SwipeGestureRecognizer_SwipedDown"
+                                        Threshold="100"/>
+            </Frame.GestureRecognizers>
+        </Frame>
+    </ScrollView>-->
+</ContentPage>

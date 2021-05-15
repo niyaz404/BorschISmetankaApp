@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BorschISmetanka.Views.AddressListPage"
+             Title="Адреса доставки">
+    <Grid Padding="3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2"/>
+            <RowDefinition Height="45"/>
+        </Grid.RowDefinitions>
+        <ScrollView x:Name="scrollview"/>
+        <Frame Grid.Row="1"
+               Grid.RowSpan="1"
+               Padding="0"
+               HasShadow="False"
+               BackgroundColor="WhiteSmoke"
+               BorderColor="Gray"
+               Opacity="0"
+               IsClippedToBounds="True"
+               CornerRadius="15"
+               TranslationY="0"
+               Margin="0,0,0,-500"
+               IsVisible="True"
+               x:Name="addressFrame">
+            <Frame.GestureRecognizers>
+                <SwipeGestureRecognizer Direction="Down"
+                                        Swiped="SwipeGestureRecognizer_SwipedDown"
+                                        Threshold="80"/>
+            </Frame.GestureRecognizers>
+            <StackLayout Padding="10">
+                <Label Text="Город" FontSize="15" HorizontalOptions="Start"/>
+                <Entry x:Name="cityEntry" Text=""/>
+                <Label Text="Улица" FontSize="15" HorizontalOptions="Start"/>
+                <Entry x:Name="streetEntry" Text=""/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Label Text="Дом" FontSize="15" HorizontalOptions="Start"/>
+                    <Entry x:Name="houseEntry" Grid.Row="1" Text=""/>
+                    <Label Text="Квартира" FontSize="15" HorizontalOptions="Start" Grid.Column="1"/>
+                    <Entry x:Name="flatEntry" Grid.Row="1"  Grid.Column="1" Text=""/>
+                </Grid>
+            </StackLayout>
+        </Frame>
+        <Button x:Name="AddAddresBtn" TextColor="Black" Text="Добавить новый адрес" Grid.Row="2" Background="White" BorderColor="LimeGreen" BorderWidth="3" Clicked="AddAddressBtn_Click"/>        
+    </Grid>
+</ContentPage>

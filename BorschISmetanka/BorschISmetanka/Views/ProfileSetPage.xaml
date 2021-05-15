@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BorschISmetanka.Views.ProfileSetPage"
+             Title="Настройки">
+    <StackLayout  Margin="10,10,0,0">
+        <Label Text="Имя" FontSize="14" Padding="19,15,0,0"  HorizontalOptions="Start" VerticalOptions="Center"/>
+        <Entry x:Name="userName" FontSize="15" Margin="15,0,15,0" TextColor="Black" IsEnabled="False"/>
+        <Label Text="Телефон" FontSize="14" Padding="19,10,0,0" HorizontalOptions="Start" VerticalOptions="Center"/>
+        <Entry x:Name="userNum" FontSize="15" Margin="15,0,15,0" TextColor="Black"/>
+        <Label Text="E-mail" FontSize="14" Padding="19,10,0,0" HorizontalOptions="Start" VerticalOptions="Center"/>
+        <Entry x:Name="userEmail" FontSize="15" Margin="15,0,15,0" TextColor="Black"/>
+        <Label Text="День рождения" FontSize="14" Padding="19,10,0,0" HorizontalOptions="Start" VerticalOptions="Center"/>
+        <Entry x:Name="userBday" FontSize="15" Margin="15,0,15,0" TextColor="Black" IsEnabled="False"/>
+        <BoxView Color="Silver"
+                 VerticalOptions="End"
+                 HeightRequest="1"/>
+        <Grid Padding="15,20,10,15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="Получать от Нас новости" TextColor="Black" FontSize="15" Grid.Column="0"/>
+            <Switch x:Name="switchSubscribe" Grid.Column="1" HorizontalOptions="End"/>
+        </Grid>
+        <BoxView Color="Silver"
+                 VerticalOptions="End"
+                 HeightRequest="1"/>
+        <Grid Padding="15,20,10,15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="setCanselBtn" Clicked="BackToProfilePage"
+                    TextColor="LimeGreen"  Text="Отмена"
+                    BackgroundColor="White" 
+                    BorderColor="LimeGreen" BorderWidth="1" CornerRadius="6"
+                    Grid.Column="0"/>
+            <Button x:Name="setOkBtn" Clicked="OkBtn_Click"
+                    TextColor="LimeGreen"  Text="ОК"
+                    BackgroundColor="White" 
+                    BorderColor="LimeGreen" BorderWidth="1" CornerRadius="6" Grid.Column="1"/>
+        </Grid>
+    </StackLayout>
+
+</ContentPage>

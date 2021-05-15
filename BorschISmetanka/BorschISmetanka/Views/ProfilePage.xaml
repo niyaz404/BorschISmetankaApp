@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BorschISmetanka.Views.ProfilePage"
+             Title="Профиль">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="2"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="2"/>
+        </Grid.RowDefinitions>        
+        <Grid x:Name="HeadGrid" Grid.Row="0" Padding="7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="80"/>
+            </Grid.ColumnDefinitions>
+            <!--<Label x:Name="userName" x:FieldModifier="public"
+               Text="Имя" FontSize="Title" FontAttributes="Bold"
+               Padding="10"
+               HorizontalOptions="Start" VerticalOptions="Center"
+               Grid.Row="0" Grid.Column="0"/>-->
+            <ImageButton x:Name="setBtn" Clicked="setBtn_Click"
+               Source="setBtn.png"
+               BackgroundColor="White"
+               Padding="10"
+               HorizontalOptions="End" VerticalOptions="Center"
+               Grid.Row="0" Grid.Column="1"/>
+        </Grid>
+        <BoxView Color="Silver"
+                 RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+                 RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=50}"
+                 HeightRequest="3"
+                 VerticalOptions="End"
+                 Grid.Row="1" Grid.Column="0"/>
+        <Grid x:Name="bonusGrid"  Grid.Row="2" Padding="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="80"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="bonusBtn" Clicked="BonusBtn_Click"
+                Text="Бонусы" FontSize="16" TextColor="LimeGreen"
+                BackgroundColor="White"
+                HorizontalOptions="Start" VerticalOptions="Center"
+                Grid.Column="0"/>
+        </Grid>
+        
+        <BoxView Color="Silver" Margin="20,0,20,0"                 
+                 RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=30}"
+                 RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+                 HeightRequest="1"
+                 Grid.Row="3" Grid.Column="0"/>
+        <Grid x:Name="addressGrid" Grid.Row="4" Padding="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="80"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="addBtn" Clicked="AddressBtn_Click"
+                Background="White"
+                Text="Адреса доставки" FontSize="16" TextColor="Black"
+                HorizontalOptions="Start" VerticalOptions="Center"
+                Grid.Column="0"/>            
+        </Grid>
+        <BoxView Color="Black"
+                 RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=30}"
+                 RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=0}"
+                 Grid.Row="5" Grid.Column="0"/>
+    </Grid>
+</ContentPage>
