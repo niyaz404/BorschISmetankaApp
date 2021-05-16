@@ -15,11 +15,15 @@ namespace BorschISmetanka.Views
         public ProfileSetPage()
         {
             InitializeComponent();
-            this.userName.Text = App.USER.name;
-            this.userEmail.Text = App.USER.e_mail;
-            this.userNum.Text = App.USER.number;
-            this.userBday.Text = App.USER.bday;
-            this.switchSubscribe.IsToggled=App.USER.subscribe;
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            userName.Text = App.USER.name;
+            userEmail.Text = App.USER.e_mail;
+            userNum.Text = App.USER.number;
+            userBday.Text = App.USER.bday;
+            switchSubscribe.IsToggled = App.USER.subscribe;
         }
         private async void BackToProfilePage(object sender, EventArgs e)
         {

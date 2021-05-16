@@ -17,6 +17,7 @@ namespace BorschISmetanka
         public static string cacheFolderPath = folderPath + "/cache";
         public static string basketCachePath = cacheFolderPath + "/BasketCache.json";
         public static string userCachePath = cacheFolderPath + "/UserCache.json";
+        public static string ordersCachePath = cacheFolderPath + "/OrdersCache.json";
         string userJson = "{\r\n  \"addresses\": [\r\n    {\r\n      \"city\": \"Уфа\",\r\n      \"street\": \", Мингажева\",\r\n      \"house\": \", 160/1\",\r\n      \"flat\": \", 918\",\r\n      \"IsFavorite\": true\r\n    },\r\n    {\r\n      \"city\": \"Уфа\",\r\n      \"street\": \", Мингажева\",\r\n      \"house\": \", 160\",\r\n      \"flat\": \", 777\",\r\n      \"IsFavorite\": false\r\n    }\r\n  ],\r\n  \"name\": \"Нияз\",\r\n  \"bday\": \"14.07.2000\",\r\n  \"e_mail\": \"nijaz_galiev@mail.ru\",\r\n  \"number\": \"89174734313\",\r\n  \"subscribe\": true\r\n}";
         static public User USER; // наш пользователь
         public App()
@@ -45,7 +46,8 @@ namespace BorschISmetanka
             if (!Directory.Exists(cacheFolderPath))
                 Directory.CreateDirectory(cacheFolderPath);
             using (FileStream stream = File.Create(basketCachePath));
-            using (FileStream stream = File.Create(userCachePath)) ;
+            using (FileStream stream = File.Create(userCachePath));
+            using (FileStream stream = File.Create(ordersCachePath)) ;
         }
         void SetUserInfo()
         {

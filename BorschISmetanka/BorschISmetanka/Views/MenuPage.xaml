@@ -9,7 +9,7 @@
             <RowDefinition Height="*"/>            
         </Grid.RowDefinitions>
         
-        <ScrollView Orientation="Horizontal" Grid.Row="0" HorizontalScrollBarVisibility="Never">
+        <ScrollView Orientation="Horizontal" Grid.Row="0" HorizontalScrollBarVisibility="Never" Padding="5,0,0,0">
             <StackLayout x:Name="ButtonStack" Orientation="Horizontal">
             </StackLayout>
         </ScrollView>

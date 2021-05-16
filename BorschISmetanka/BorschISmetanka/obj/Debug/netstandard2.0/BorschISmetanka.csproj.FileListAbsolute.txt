@@ -29,6 +29,5 @@ D:\Visual Studio 2019 Project\BorschISmetanka\BorschISmetanka\BorschISmetanka\bi
 D:\Visual Studio 2019 Project\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Debug\netstandard2.0\BorschISmetanka.csproj.CopyComplete
 D:\Visual Studio 2019 Project\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Debug\netstandard2.0\BorschISmetanka.Properties.Resources.resources
 D:\Visual Studio 2019 Project\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Debug\netstandard2.0\BorschISmetanka.csproj.GenerateResource.cache
-D:\Visual Studio 2019 Project\BorschISmetanka\BorschISmetanka\BorschISmetanka\bin\Debug\netstandard2.0\Views\Monkeys.json
 D:\Visual Studio 2019 Project\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Debug\netstandard2.0\Views\OrderingPage.xaml.g.cs
 D:\Visual Studio 2019 Project\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Debug\netstandard2.0\BorschISmetanka.csprojAssemblyReference.cache

@@ -71,11 +71,8 @@
                         <Button x:Name="orderingBtn2" Margin="0,20,0,0" Text="Оформить заказ" BackgroundColor="LimeGreen" Grid.Row="7" IsEnabled="false" VerticalOptions="End" CornerRadius="5" Clicked="Checkout_Click"/>
                     </Grid>
                 </Grid>
-               
+
                 <Frame.GestureRecognizers>
-                    <SwipeGestureRecognizer Direction="Up"
-                                        Swiped="SwipeGestureRecognizer_SwipedUp"
-                                        Threshold="80"/>
                     <SwipeGestureRecognizer Direction="Down"
                                         Swiped="SwipeGestureRecognizer_SwipedDown"
                                         Threshold="80"/>

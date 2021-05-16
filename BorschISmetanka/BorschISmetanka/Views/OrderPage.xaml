@@ -1,65 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:map="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
-             x:Class="BorschISmetanka.Views.OrderPage"
-             Title="Заказы">
-    <Grid x:Name="grid">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="200"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="50"/>
-        </Grid.RowDefinitions>
-        <map:Map x:Name="MyMap" MapType="Satellite" HasZoomEnabled="True" IsShowingUser="true" TrafficEnabled="true">
-            <x:Arguments>
-                <map:MapSpan>
-                    <x:Arguments>
-                        <map:Position>
-                            <x:Arguments>
-                                <x:Double>54.725019721084095</x:Double>
-                                <x:Double>55.94091973567985</x:Double>
-                            </x:Arguments>
-                        </map:Position>
-                        <x:Double>0.01</x:Double>
-                        <x:Double>0.01</x:Double>
-                    </x:Arguments>
-                </map:MapSpan>
-            </x:Arguments>
-            <map:Map.Pins>
-                <map:Pin Label="BorschISmetanka"
-                       Address="Tut vkusno"
-                       Type="Place">
-                    <map:Pin.Position>
-                        <map:Position>
-                            <x:Arguments>
-                                <x:Double>54.725019721084095</x:Double>
-                                <x:Double>55.94091973567985</x:Double>
-                            </x:Arguments>
-                        </map:Position>
-                    </map:Pin.Position>
-                </map:Pin>
-            </map:Map.Pins>
-        </map:Map>
-        <ScrollView x:Name="photoScrollView" Orientation="Horizontal" HorizontalScrollBarVisibility="Never" Grid.Row="1">
-        </ScrollView>
-    </Grid>
-    <!--<Grid>
-    <Frame 
-               Padding="0"
-               HasShadow="False"
-               BackgroundColor="Transparent"
-               IsClippedToBounds="True"
-               CornerRadius="15"
-               TranslationY="0"
-               Margin="0,0,0,-300"
-               x:Name="frameMap">
-        <Frame.GestureRecognizers>
-            <SwipeGestureRecognizer Direction="Up"
-                                        Swiped="SwipeGestureRecognizer_SwipedUp"
-                                        Threshold="100"/>
-            <SwipeGestureRecognizer Direction="Down"   
-                                        Swiped="SwipeGestureRecognizer_SwipedDown"
-                                        Threshold="100"/>
-        </Frame.GestureRecognizers>
-    </Frame>
-    </Grid>-->
+                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:map="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+                 x:Class="BorschISmetanka.Views.OrderPage"
+                     Title="Заказы">
+    <ScrollView x:Name="mainScrollV">
+        <Grid x:Name="grid" Padding="7,0,7,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="400"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="400"/>
+            </Grid.RowDefinitions>
+            <Frame HasShadow="False">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Frame.GestureRecognizers>
+                <Grid x:Name="mapGrid" Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label Text="Ваш заказ на карте:" TextColor="LimeGreen" FontSize="18" HorizontalTextAlignment="Start"/>
+                    <map:Map x:Name="MyMap" MapType="Satellite" HasZoomEnabled="True" IsShowingUser="true" TrafficEnabled="true" Grid.Row="1">
+                        <x:Arguments>
+                            <map:MapSpan>
+                                <x:Arguments>
+                                    <map:Position>
+                                        <x:Arguments>
+                                            <x:Double>54.725019721084095</x:Double>
+                                            <x:Double>55.94091973567985</x:Double>
+                                        </x:Arguments>
+                                    </map:Position>
+                                    <x:Double>0.01</x:Double>
+                                    <x:Double>0.01</x:Double>
+                                </x:Arguments>
+                            </map:MapSpan>
+                        </x:Arguments>
+                        <map:Map.Pins>
+                            <map:Pin Label="BorschISmetanka"
+                               Address="Tut vkusno"
+                               Type="Place">
+                                <map:Pin.Position>
+                                    <map:Position>
+                                        <x:Arguments>
+                                            <x:Double>54.725019721084095</x:Double>
+                                            <x:Double>55.94091973567985</x:Double>
+                                        </x:Arguments>
+                                    </map:Position>
+                                </map:Pin.Position>
+                            </map:Pin>
+                        </map:Map.Pins>
+                    </map:Map>
+                </Grid>
+            </Frame>
+            <Label Text="Ваши заказы:" TextColor="Black" FontSize="18" Grid.Row="1" Margin="15,0,0,0" />
+        </Grid>
+    </ScrollView>
 </ContentPage>

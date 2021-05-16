@@ -26,6 +26,10 @@ namespace BorschISmetanka.Views
         static public int Sum;
         public static Picker addressPicker;
 
+        /// <summary>
+        public bool b = true;
+        /// </summary>
+
 
         static string path1 = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         public BasketPage()
@@ -48,8 +52,13 @@ namespace BorschISmetanka.Views
         }
         void RefreshPicker()
         {
-            foreach (Address add in App.USER.addresses)
-                addressPicker.Items.Add(add.GetAddress());
+            addressPicker.Items.Clear();
+            for (int i = 0; i < App.USER.addresses.Count; i++) 
+            {
+                    addressPicker.Items.Add(App.USER.addresses[i].GetAddress());
+                if (App.USER.addresses[i].IsFavorite)
+                    addressPicker.SelectedItem = addressPicker.Items[i];
+            }
         }
         public static void AddToPicker(Address add)
         {
@@ -203,6 +212,36 @@ namespace BorschISmetanka.Views
             }
             CalculateSum();
         }
+        void AddToOrdersCache(Order newOrder)
+        {
+            List<Order> orders = new List<Order>();
+            if (b)
+            {
+                using (StreamWriter writer = new StreamWriter(App.ordersCachePath)) /*(FileStream writer = File.OpenWrite(AppShell.basketCachePath))*/
+                {
+                    orders.Add(newOrder);
+                    string s = JsonConvert.SerializeObject(orders);
+                    writer.Write(s);
+                    writer.Close();
+                }
+                b = false;
+            }
+            else
+            {
+                using (StreamReader reader = new StreamReader(File.OpenRead(App.basketCachePath)))
+                {
+                    string s = reader.ReadToEnd();
+                    orders = JsonConvert.DeserializeObject<List<Order>>(s);
+                    orders.Add(newOrder);
+                }
+                using (StreamWriter writer = new StreamWriter(File.Create(App.basketCachePath)))
+                {
+                    string list = JsonConvert.SerializeObject(orders);
+                    writer.Write(list);
+                    writer.Close();
+                }
+            }
+        }
         void CalculateSum()
         {
             Sum = 0;
@@ -251,18 +290,7 @@ namespace BorschISmetanka.Views
         }
         private bool _isExpanded = false;
 
-
-        async void SwipeGestureRecognizer_SwipedUp(System.Object sender, Xamarin.Forms.SwipedEventArgs e)
-        {
-            //if (!_isExpanded)
-            //{
-            //    await orderFrame.TranslateTo(0, -300, 200, Easing.CubicInOut);
-            //    orderFrame.Opacity = 1;
-            //    _isExpanded = true;
-            //}
-        }
-
-        async void SwipeGestureRecognizer_SwipedDown(System.Object sender, Xamarin.Forms.SwipedEventArgs e)
+        async void SwipeGestureRecognizer_SwipedDown(Object sender, SwipedEventArgs e)
         {
             if (_isExpanded)
             {
@@ -279,7 +307,6 @@ namespace BorschISmetanka.Views
         {
             if(addressPicker.SelectedItem!=null&&payPicker.SelectedItem!=null)
             orderingBtn2.IsEnabled = true;
-            //header.Text = "Вы выбрали: " + picker.Items[picker.SelectedIndex];
         }
         async void  ToOrderBtn_Click(object sender, EventArgs e)
         {
@@ -298,14 +325,32 @@ namespace BorschISmetanka.Views
         }
         async void Checkout_Click(object sender, EventArgs e)
         {
-            Order order = new Order(App.USER.addresses[addressPicker.SelectedIndex], DishesInBasket);
+            //Order order = new Order(App.USER.addresses[addressPicker.SelectedIndex], DishesInBasket);
+            //int Sum = 0;
+            //foreach(Dish d in DishesInBasket)
+            //{
+            //    Sum += d.price;
+            //}
+            Order order = new Order {address= App.USER.addresses[addressPicker.SelectedIndex], date=DateTime.Now, status="Готовится", sum=Sum, dishes=DishesInBasket};
             ////////////
             string orderJson = JsonConvert.SerializeObject(order);
             ////////////
-            OrderPage.CurrentOrder(order);
+            //OrderPage.CurrentOrder(order);
+            AddToOrdersCache(order);
             DishesInBasket.Clear();
+            //using (FileStream stream = File.Create(App.basketCachePath));
+            //File.WriteAllText(App.basketCachePath, String.Empty);
+            await orderFrame.TranslateTo(0, 0, 200, Easing.CubicInOut);            
             using (FileStream stream = File.Create(App.basketCachePath));
-            needToRefresh = true;
+            orderFrame.Opacity = 0;
+            orderingBtn1.IsEnabled = true;
+            orderingBtn1.Opacity = 1;
+            line.IsVisible = true;
+            sumLabel.IsVisible = true;
+            RefreshBasket();
+            MenuPage.dishesnameList.Clear();
+            OrderPage.needToRefresh=true;
+            _isExpanded = false;
         }
         async void AddAddress_Click(object sender, EventArgs e)
         {

@@ -1,4 +1,3 @@
-D:\Visual Studio 2019 Project\BorschISmetanka\BorschISmetanka\BorschISmetanka.Android\bin\Debug\Views\Monkeys.json
 D:\Visual Studio 2019 Project\BorschISmetanka\BorschISmetanka\BorschISmetanka.Android\bin\Debug\BorschISmetanka.Android.dll
 D:\Visual Studio 2019 Project\BorschISmetanka\BorschISmetanka\BorschISmetanka.Android\bin\Debug\BorschISmetanka.Android.pdb
 D:\Visual Studio 2019 Project\BorschISmetanka\BorschISmetanka\BorschISmetanka.Android\bin\Debug\com.companyname.borschismetanka.apk

@@ -12,13 +12,9 @@ androidx.coordinatorlayout.widget.CoordinatorLayout;D:\Visual Studio 2019 Projec
 attr;D:\Visual Studio 2019 Project\BorschISmetanka\BorschISmetanka\BorschISmetanka.Android\obj\Debug\110\lp\47\jl\res\values\attrs.xml
 background;obj\Debug\110\res\mipmap-anydpi-v26\icon.xml
 background;obj\Debug\110\res\mipmap-anydpi-v26\icon_round.xml
-bitmap;obj\Debug\110\res\drawable\drawable.xml
 bitmap;obj\Debug\110\res\drawable\splash_screen.xml
-bitmap;obj\Debug\110\res\values\splash_screen.xml
 cache-path;D:\Visual Studio 2019 Project\BorschISmetanka\BorschISmetanka\BorschISmetanka.Android\obj\Debug\110\lp\45\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
-color;obj\Debug\110\res\drawable\splash_screen.xml
 color;obj\Debug\110\res\values\colors.xml
-color;obj\Debug\110\res\values\splash_screen.xml
 com.google.android.material.appbar.AppBarLayout;D:\Visual Studio 2019 Project\BorschISmetanka\BorschISmetanka\BorschISmetanka.Android\obj\Debug\110\lp\47\jl\res\layout\flyoutcontent.xml
 com.google.android.material.appbar.AppBarLayout;D:\Visual Studio 2019 Project\BorschISmetanka\BorschISmetanka\BorschISmetanka.Android\obj\Debug\110\lp\47\jl\res\layout\rootlayout.xml
 com.google.android.material.appbar.AppBarLayout;D:\Visual Studio 2019 Project\BorschISmetanka\BorschISmetanka\BorschISmetanka.Android\obj\Debug\110\lp\47\jl\res\layout\shellcontent.xml
@@ -33,20 +29,15 @@ foreground;obj\Debug\110\res\mipmap-anydpi-v26\icon.xml
 foreground;obj\Debug\110\res\mipmap-anydpi-v26\icon_round.xml
 FrameLayout;D:\Visual Studio 2019 Project\BorschISmetanka\BorschISmetanka\BorschISmetanka.Android\obj\Debug\110\lp\47\jl\res\layout\bottomtablayout.xml
 item;D:\Visual Studio 2019 Project\BorschISmetanka\BorschISmetanka\BorschISmetanka.Android\obj\Debug\110\lp\47\jl\res\values\styles.xml
-item;obj\Debug\110\res\drawable\drawable.xml
 item;obj\Debug\110\res\drawable\splash_screen.xml
-item;obj\Debug\110\res\values\splash_screen.xml
 item;obj\Debug\110\res\values\styles.xml
-layer-list;obj\Debug\110\res\drawable\drawable.xml
 layer-list;obj\Debug\110\res\drawable\splash_screen.xml
-layer-list;obj\Debug\110\res\values\splash_screen.xml
 LinearLayout;D:\Visual Studio 2019 Project\BorschISmetanka\BorschISmetanka\BorschISmetanka.Android\obj\Debug\110\lp\47\jl\res\layout\bottomtablayout.xml
 paths;D:\Visual Studio 2019 Project\BorschISmetanka\BorschISmetanka\BorschISmetanka.Android\obj\Debug\110\lp\45\jl\res\xml\xamarin_essentials_fileprovider_file_paths.xml
 resources;D:\Visual Studio 2019 Project\BorschISmetanka\BorschISmetanka\BorschISmetanka.Android\obj\Debug\110\lp\47\jl\res\values\attrs.xml
 resources;D:\Visual Studio 2019 Project\BorschISmetanka\BorschISmetanka\BorschISmetanka.Android\obj\Debug\110\lp\47\jl\res\values\strings.xml
 resources;D:\Visual Studio 2019 Project\BorschISmetanka\BorschISmetanka\BorschISmetanka.Android\obj\Debug\110\lp\47\jl\res\values\styles.xml
 resources;obj\Debug\110\res\values\colors.xml
-resources;obj\Debug\110\res\values\splash_screen.xml
 resources;obj\Debug\110\res\values\styles.xml
 set;D:\Visual Studio 2019 Project\BorschISmetanka\BorschISmetanka\BorschISmetanka.Android\obj\Debug\110\lp\47\jl\res\anim\enterfromleft.xml
 set;D:\Visual Studio 2019 Project\BorschISmetanka\BorschISmetanka\BorschISmetanka.Android\obj\Debug\110\lp\47\jl\res\anim\enterfromright.xml

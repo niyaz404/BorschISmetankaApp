@@ -43,19 +43,12 @@ namespace BorschISmetanka.Views
         public ObservableCollection<ScrollView> scrolls{ get; set; } = new ObservableCollection<ScrollView>();
         public ObservableCollection<Recipes_cat> recipes_cat { get; set; } = new ObservableCollection<Recipes_cat>();
         static public List<Dish> dishesList = new List<Dish>();
-        //public ObservableCollection<ObservableCollection<Dish>> Menu = new ObservableCollection<ObservableCollection<Dish>>();
-        static List<string> dishesnameList = new List<string>();//название добавленных в корзину блюд
+        public static List<string> dishesnameList = new List<string>();//название добавленных в корзину блюд
         static CarouselView carousel = new CarouselView();
-        //ObservableCollection<ScrollView> sv { get; set; }
         public MenuPage()
         {
             InitializeComponent();
             BindingContext = this;
-            //Menu.Add(Z);
-            //Menu.Add(BL);
-            //Menu.Add(S);
-            //Menu.Add(D);
-            //LoadMenu();
         }
         void Carousel()
         {
@@ -102,9 +95,10 @@ namespace BorschISmetanka.Views
             {
                 Text = dish.name,
                 FontAttributes = FontAttributes.Bold,
-                FontSize = 22,
+                FontSize = 20,
                 HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.Center
+                VerticalOptions = LayoutOptions.Center,
+                LineBreakMode = LineBreakMode.WordWrap
             };
             Label description = new Label
             {
@@ -141,7 +135,17 @@ namespace BorschISmetanka.Views
             Grid.SetColumn(internalGrid2, 1);
             externalGrid.Children.Add(internalGrid1);
             externalGrid.Children.Add(internalGrid2);
-            return new Frame { Content = externalGrid };
+            Frame frame= new Frame { Content = externalGrid };
+            var tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Tapped += TapGestureRecognizer_Tapped;
+            tapGestureRecognizer.NumberOfTapsRequired = 2;
+            frame.GestureRecognizers.Add(tapGestureRecognizer);
+            return frame; 
+
+        }
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            //((Frame)sender).Height=
 
         }
         public void ButtonClick(object s, EventArgs e)
@@ -153,27 +157,6 @@ namespace BorschISmetanka.Views
             base.OnAppearing();
             if (loading)
             {
-                //using(StreamReader reader=new StreamReader(pat+"/menu.json"))
-                //{
-                //    string s = reader.ReadToEnd();
-                //    var dishes = JsonConvert.DeserializeObject<List<Dish1>>(s);
-                //    Dishes.Clear();
-                //    foreach (Dish1 dish in dishes)
-                //    {
-                //        Dishes1.Add(dish);
-                //        ButtonStack.Children.Add(new Button
-                //        {
-                //            Text = dish.name,
-                //            TextColor = Color.Gray,
-                //            BorderColor = Color.Gray,
-                //            BorderWidth = 2,
-                //            BackgroundColor = Color.White,
-                //            CornerRadius = 30
-                //        });
-                //    }
-                //}
-                //var dishes = JsonConvert.DeserializeObject<List<Dish>>(newmenu);
-
                 var dishes= JsonConvert.DeserializeObject<List<Recipes_cat>>(MENU);
                 //recipes_cat = JsonConvert.DeserializeObject<ObservableCollection<Recipes_cat>>(recipes);
                 
@@ -198,10 +181,6 @@ namespace BorschISmetanka.Views
                 CurrentButton(0);
                 loading = false;                
             }
-        }
-        static void RefreshDishList()
-        {
-
         }
         static public void RemoveFromDishList(int index)
         {
