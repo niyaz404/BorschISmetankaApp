@@ -152,11 +152,26 @@ namespace BorschISmetanka.Views
         {
             ((Button)s).Text = "fff";
         }
-        protected override void OnAppearing()
+
+        public async Task<string> getAsync(string uri) //get запрос к БД
+        {
+            HttpClientHandler handler = new HttpClientHandler();
+            handler.ServerCertificateCustomValidationCallback = delegate { return true; };
+            HttpClient httpClient = new HttpClient(handler);
+            httpClient.Timeout = TimeSpan.FromSeconds(1000);
+
+            var response = await httpClient.GetStringAsync(uri);
+
+            return await Task.Run(() => response.ToString());
+        }
+
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
             if (loading)
             {
+                string response = await getAsync("http://192.168.0.102:3000/Orders/4");
+
                 var dishes= JsonConvert.DeserializeObject<List<Recipes_cat>>(MENU);
                 //recipes_cat = JsonConvert.DeserializeObject<ObservableCollection<Recipes_cat>>(recipes);
                 
