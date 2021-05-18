@@ -41,7 +41,12 @@ namespace BorschISmetanka.Views
         public ObservableCollection<Dish> Dishes { get; set; } = new ObservableCollection<Dish>();
         public ObservableCollection<razdel> razdely { get; set; } = new ObservableCollection<razdel>();
         public ObservableCollection<ScrollView> scrolls{ get; set; } = new ObservableCollection<ScrollView>();
-        public ObservableCollection<Recipes_cat> recipes_cat { get; set; } = new ObservableCollection<Recipes_cat>();
+        public ObservableCollection<Dish> recipes_cat { get; set; } = new ObservableCollection<Dish>();
+
+        public List<ObservableCollection<Dish>> My_menu = new List<ObservableCollection<Dish>>();
+
+        public List<Dish> dishes = new List<Dish>();
+
         static public List<Dish> dishesList = new List<Dish>();
         public static List<string> dishesnameList = new List<string>();//название добавленных в корзину блюд
         static CarouselView carousel = new CarouselView();
@@ -52,11 +57,10 @@ namespace BorschISmetanka.Views
         }
         void Carousel()
         {
-            foreach (Recipes_cat rc in recipes_cat)
+            foreach(ObservableCollection<Dish> dishes in My_menu)
             {
-                scrolls.Add(new ScrollView { Content = MenuStack(rc.dish) });
+                scrolls.Add(new ScrollView { Content = MenuStack(dishes) });
             }
-            
         }
 
         StackLayout MenuStack(ObservableCollection<Dish> dishes)
@@ -170,31 +174,57 @@ namespace BorschISmetanka.Views
             base.OnAppearing();
             if (loading)
             {
-                string response = await getAsync("http://192.168.0.102:3000/Orders/4");
+                string response = await getAsync("http://192.168.0.102:3000/api/Dishes");
 
-                var dishes= JsonConvert.DeserializeObject<List<Recipes_cat>>(MENU);
+                dishes = JsonConvert.DeserializeObject<List<Dish>>(response);
+                //var dishes= JsonConvert.DeserializeObject<List<Recipes_cat>>(response);
                 //recipes_cat = JsonConvert.DeserializeObject<ObservableCollection<Recipes_cat>>(recipes);
-                
-                recipes_cat.Clear();
-                foreach (Recipes_cat dish in dishes)
+
+                foreach (Dish dish in dishes)
                 {
-                    recipes_cat.Add(dish);
-                    Button button = new Button
+                    bool ok = true;
+                    foreach(Dish dish1 in recipes_cat)
                     {
-                        Text = dish.category,
-                        TextColor = Color.Gray,
-                        BorderColor = Color.Gray,
-                        BorderWidth = 2,
-                        BackgroundColor = Color.White,
-                        CornerRadius = 30
-                    };
-                    button.Clicked += MenuButton_Click;
-                    ButtonStack.Children.Add(button);
+                        if(dish.category == dish1.category)
+                        {
+                            ok = false;
+                            break;
+                        }
+                    }
+                    if (ok)
+                    {
+                        recipes_cat.Add(dish);
+                        Button button = new Button
+                        {
+                            Text = dish.category,
+                            TextColor = Color.Gray,
+                            BorderColor = Color.Gray,
+                            BorderWidth = 2,
+                            BackgroundColor = Color.White,
+                            CornerRadius = 30
+                        };
+                        button.Clicked += MenuButton_Click;
+                        ButtonStack.Children.Add(button);
+                    }
                 }
+
+                foreach(Dish recipes_cat in recipes_cat)
+                {
+                    ObservableCollection<Dish> d = new ObservableCollection<Dish>();
+                    foreach(Dish dishes in dishes)
+                    {
+                        if(recipes_cat.category == dishes.category)
+                        {
+                            d.Add(dishes);
+                        }
+                    }
+                    My_menu.Add(d);
+                }
+
                 Carousel();
                 menuSV.Content = scrolls[0].Content;
                 CurrentButton(0);
-                loading = false;                
+                loading = false;
             }
         }
         static public void RemoveFromDishList(int index)
@@ -270,15 +300,13 @@ namespace BorschISmetanka.Views
         {
             Grid grid = (Grid)(((Button)sender).Parent);
             string name = ((Label)(grid.Children[0])).Text;
-            foreach (Recipes_cat rc in recipes_cat) {
-                foreach (Dish d in rc.dish)
+            foreach (Dish d in recipes_cat)
+            {
+                if (name == d.name)
                 {
-                    if (name == d.name)
-                    {
-                        AddToBasketCache(d);
-                        BasketPage.needToRefresh = true;
-                        break;
-                    }
+                    AddToBasketCache(d);
+                    BasketPage.needToRefresh = true;
+                    break;
                 }
             }
         }
