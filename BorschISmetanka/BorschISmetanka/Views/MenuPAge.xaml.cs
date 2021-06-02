@@ -16,70 +16,56 @@ using BorschISmetanka.Models;
 
 namespace BorschISmetanka.Views
 {
-    //[XamlCompilation(XamlCompilationOptions.Compile)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MenuPage : ContentPage
-    {
-        static bool cacheExist = false;
-        static string menu2 = "[\r\n  [\r\n    {\r\n      \"name\": \"Baboon\",\r\n      \"Location\": \"Africa & Asia\",\r\n      \"description\": \"Baboons are African and Arabian Old World monkeys belonging to the genus Papio, part of the subfamily Cercopithecinae.\",\r\n      \"image\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Portrait_Of_A_Baboon.jpg/314px-Portrait_Of_A_Baboon.jpg\",\r\n      \"price\": 10000,\r\n      \"Latitude\": -8.783195,\r\n      \"Longitude\": 34.508523\r\n    },\r\n    {\r\n      \"name\": \"Capuchin Monkey\",\r\n      \"Location\": \"Central & South America\",\r\n      \"description\": \"The capuchin monkeys are New World monkeys of the subfamily Cebinae. Prior to 2011, the subfamily contained only a single genus, Cebus.\",\r\n      \"image\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Capuchin_Costa_Rica.jpg/200px-Capuchin_Costa_Rica.jpg\",\r\n      \"Population\": 23000,\r\n      \"Latitude\": 12.769013,\r\n      \"Longitude\": -85.602364\r\n    },\r\n    {\r\n      \"name\": \"Blue Monkey\",\r\n      \"Location\": \"Central and East Africa\",\r\n      \"description\": \"The blue monkey or diademed monkey is a species of Old World monkey native to Central and East Africa, ranging from the upper Congo River basin east to the East African Rift and south to northern Angola and Zambia\",\r\n      \"image\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/BlueMonkey.jpg/220px-BlueMonkey.jpg\",\r\n      \"price\": 12000,\r\n      \"Latitude\": 1.957709,\r\n      \"Longitude\": 37.297204\r\n    }\r\n  ],\r\n  [\r\n    {\r\n      \"name\": \"Squirrel Monkey\",\r\n      \"description\": \"The blue monkey or diademed monkey is a species of Old World monkey native to Central and East Africa, ranging from the upper Congo River basin east to the East African Rift and south to northern Angola and Zambia\",\r\n      \"image\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Saimiri_sciureus-1_Luc_Viatour.jpg/220px-Saimiri_sciureus-1_Luc_Viatour.jpg\",\r\n      \"price\": 11000,\r\n      \"count\": 0\r\n    },\r\n    {\r\n      \"name\": \"Golden Lion Tamarin\",\r\n      \"description\": \"The golden lion tamarin also known as the golden marmoset, is a small New World monkey of the family Callitrichidae.\",\r\n      \"image\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Golden_lion_tamarin_portrait3.jpg/220px-Golden_lion_tamarin_portrait3.jpg\",\r\n      \"price\": 300,\r\n      \"count\": 0\r\n    },\r\n    {\r\n      \"name\": \"Howler Monkey\",\r\n      \"description\": \"Howler monkeys are among the largest of the New World monkeys. Fifteen species are currently recognised. Previously classified in the family Cebidae, they are now placed in the family Atelidae.\",\r\n      \"image\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Alouatta_guariba.jpg/200px-Alouatta_guariba.jpg\",\r\n      \"price\": 3200,\r\n      \"count\": 0\r\n    }\r\n  ]\r\n]";
-
-        static string recipes = "[\r\n  {\r\n    \"category\": \"pizda\",\r\n    \"recipes\": \r\n    [\r\n      {\r\n        \"name\": \"dd\",\r\n        \"description\": \"dddd\",\r\n        \"image\": null,\r\n        \"price\": 3,\r\n        \"count\": 0\r\n      },\r\n      {\r\n        \"name\": \"aaaa\",\r\n        \"description\": \"dddd\",\r\n        \"image\": null,\r\n        \"price\": 3,\r\n        \"count\": 0\r\n      }\r\n    ]\r\n  },\r\n  {\r\n    \"category\": \"hui\",\r\n    \"recipes\": [\r\n      {\r\n        \"name\": \"dd\",\r\n        \"description\": \"dddd\",\r\n        \"image\": null,\r\n        \"price\": 3,\r\n        \"count\": 0\r\n      },\r\n      {\r\n        \"name\": \"aaaa\",\r\n        \"description\": \"dddd\",\r\n        \"image\": null,\r\n        \"price\": 3,\r\n        \"count\": 0\r\n      }\r\n    ]\r\n  }\r\n]";
-        static string recipes2 = "[\r\n  {\r\n    \"category\": \"pizda\",\r\n    \"recipes\": \r\n    [\r\n      {\r\n        \"name\": \"Kasha\",\r\n        \"description\": \"vkusnaya\",\r\n        \"image\": null,\r\n        \"price\": 3,\r\n        \"count\": 0\r\n      },\r\n      {\r\n        \"name\": \"Kasha\",\r\n        \"description\": \"nevkusnaya\",\r\n        \"image\": null,\r\n        \"price\": 4,\r\n        \"count\": 0\r\n      }\r\n    ]\r\n  },\r\n  {\r\n    \"category\": \"hui\",\r\n    \"recipes\": [\r\n      {\r\n        \"name\": \"sup\",\r\n        \"description\": \"dddd\",\r\n        \"image\": null,\r\n        \"price\": 5,\r\n        \"count\": 0\r\n      },\r\n      {\r\n        \"name\": \"puyre\",\r\n        \"description\": \"dddd\",\r\n        \"image\": null,\r\n        \"price\": 6,\r\n        \"count\": 0\r\n      }\r\n    ]\r\n  }\r\n]";
-        static string MENU = "[\r\n  {\r\n    \"category\": \"Завтраки\",\r\n    \"recipes\": [\r\n      {\r\n        \"name\": \"Каша\",\r\n        \"description\": \"Вкусная\",\r\n        \"image\": \"https://eda.ru/img/eda/c620x415i/s2.eda.ru/StaticContent/Photos/130822102925/190811173919/p_O.jpg\",\r\n        \"price\": 80,\r\n        \"count\": 0\r\n      },\r\n      {\r\n        \"name\": \"Каша\",\r\n        \"description\": \"Очень вкусная\",\r\n        \"image\": \"https://www.patee.ru/r/x6/05/0f/ce/960m.jpg\",\r\n        \"price\": 100,\r\n        \"count\": 0\r\n      },\r\n      {\r\n        \"name\": \"Сырники со сгущенкой\",\r\n        \"description\": \"Отрыв башки\",\r\n        \"image\": \"https://www.koolinar.ru/all_image/recipes/140/140944/recipe_4fe17d68-e1cc-437c-830a-675a42e65d49_w450.jpg\",\r\n        \"price\": 120,\r\n        \"count\": 0\r\n      }\r\n    ]\r\n  },\r\n  {\r\n    \"category\": \"Бизнес-ланчи\",\r\n    \"recipes\": [\r\n      {\r\n        \"name\": \"Бизнес-ланч 1\",\r\n        \"description\": \"Очень сытно и полезно\",\r\n        \"image\": \"https://canapeclub.ru/image/cache/catalog/product/30-10-2019/lanch%E2%84%961-500x500.jpg\",\r\n        \"price\": 240,\r\n        \"count\": 0\r\n      },\r\n      {\r\n        \"name\": \"Бизнес-ланчи 2\",\r\n        \"description\": \"Очень сытно,полезно да еще и вкусно\",\r\n        \"image\": \"https://kolesovremeni.ru/storage/app/media/uploaded-files/lanch.jpg\",\r\n        \"price\": 200,\r\n        \"count\": 0\r\n      },\r\n      {\r\n        \"name\": \"Бизнес-ланчи 2\",\r\n        \"description\": \"Очень сытно,полезно да еще и вкусно\",\r\n        \"image\": \"https://kolesovremeni.ru/storage/app/media/uploaded-files/lanch.jpg\",\r\n        \"price\": 200,\r\n        \"count\": 0\r\n      }\r\n    ]\r\n  },\r\n  {\r\n    \"category\": \"Супы\",\r\n    \"recipes\": [\r\n      {\r\n        \"name\": \"Борщ\",\r\n        \"description\": \"Это борщ\",\r\n        \"image\": \"https://eda.ru/img/eda/c620x415i/s2.eda.ru/StaticContent/Photos/130822102925/190811173919/p_O.jpg\",\r\n        \"price\": 80,\r\n        \"count\": 0\r\n      },\r\n      {\r\n        \"name\": \"Щи\",\r\n        \"description\": \"Такой же щи как я\",\r\n        \"image\": \"https://www.patee.ru/r/x6/05/0f/ce/960m.jpg\",\r\n        \"price\": 60,\r\n        \"count\": 0\r\n      },\r\n      {\r\n        \"name\": \"Лапша\",\r\n        \"description\": \"Тоже бомба\",\r\n        \"image\": \"https://www.koolinar.ru/all_image/recipes/140/140944/recipe_4fe17d68-e1cc-437c-830a-675a42e65d49_w450.jpg\",\r\n        \"price\": 60,\r\n        \"count\": 0\r\n      }\r\n    ]\r\n  },\r\n  {\r\n    \"category\": \"Десерты\",\r\n    \"recipes\": [\r\n      {\r\n        \"name\": \"Пирог\",\r\n        \"description\": \"Очень сытно и полезно\",\r\n        \"image\": \"https://canapeclub.ru/image/cache/catalog/product/30-10-2019/lanch%E2%84%961-500x500.jpg\",\r\n        \"price\": 120,\r\n        \"count\": 0\r\n      },\r\n      {\r\n        \"name\": \"Еще один пирог\",\r\n        \"description\": \"Очень сытно,полезно да еще и вкусно\",\r\n        \"image\": \"https://kolesovremeni.ru/storage/app/media/uploaded-files/lanch.jpg\",\r\n        \"price\": 140,\r\n        \"count\": 0\r\n      }\r\n    ]\r\n  }\r\n]";
-
-        static bool casheHasUpdated = false;
-        string menu = "[{\"count\":0,\"Name\":\"Baboon\",\"Details\":\"Baboons are African and Arabian Old World monkeys belonging to the genus Papio, part of the subfamily Cercopithecinae.\",\"Image\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Portrait_Of_A_Baboon.jpg/314px-Portrait_Of_A_Baboon.jpg\",\"Population\":10000},{\"count\":0,\"Name\":\"Capuchin Monkey\",\"Details\":\"The capuchin monkeys are New World monkeys of the subfamily Cebinae. Prior to 2011, the subfamily contained only a single genus, Cebus.\",\"Image\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Capuchin_Costa_Rica.jpg/200px-Capuchin_Costa_Rica.jpg\",\"Population\":23000},{\"count\":0,\"Name\":\"Blue Monkey\",\"Details\":\"The blue monkey or diademed monkey is a species of Old World monkey native to Central and East Africa, ranging from the upper Congo River basin east to the East African Rift and south to northern Angola and Zambia\",\"Image\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/BlueMonkey.jpg/220px-BlueMonkey.jpg\",\"Population\":12000},{\"count\":0,\"Name\":\"Squirrel Monkey\",\"Details\":\"The squirrel monkeys are the New World monkeys of the genus Saimiri. They are the only genus in the subfamily Saimirinae. The name of the genus Saimiri is of Tupi origin, and was also used as an English name by early researchers.\",\"Image\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Saimiri_sciureus-1_Luc_Viatour.jpg/220px-Saimiri_sciureus-1_Luc_Viatour.jpg\",\"Population\":11000},{\"count\":0,\"Name\":\"Golden Lion Tamarin\",\"Details\":\"The golden lion tamarin also known as the golden marmoset, is a small New World monkey of the family Callitrichidae.\",\"Image\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Golden_lion_tamarin_portrait3.jpg/220px-Golden_lion_tamarin_portrait3.jpg\",\"Population\":19000}]";
-        string newmenu = "[{\"count\":0,\"name\":\"Baboon\",\"description\":\"Baboons are African and Arabian Old World monkeys belonging to the genus Papio, part of the subfamily Cercopithecinae.\",\"image\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Portrait_Of_A_Baboon.jpg/314px-Portrait_Of_A_Baboon.jpg\",\"price\":10000},{\"count\":0,\"name\":\"Capuchin Monkey\",\"description\":\"The capuchin monkeys are New World monkeys of the subfamily Cebinae. Prior to 2011, the subfamily contained only a single genus, Cebus.\",\"image\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Capuchin_Costa_Rica.jpg/200px-Capuchin_Costa_Rica.jpg\",\"price\":23000},{\"count\":0,\"name\":\"Blue Monkey\",\"description\":\"The blue monkey or diademed monkey is a species of Old World monkey native to Central and East Africa, ranging from the upper Congo River basin east to the East African Rift and south to northern Angola and Zambia\",\"image\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/BlueMonkey.jpg/220px-BlueMonkey.jpg\",\"price\":12000},{\"count\":0,\"name\":\"Squirrel Monkey\",\"description\":\"The squirrel monkeys are the New World monkeys of the genus Saimiri. They are the only genus in the subfamily Saimirinae. The name of the genus Saimiri is of Tupi origin, and was also used as an English name by early researchers.\",\"image\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Saimiri_sciureus-1_Luc_Viatour.jpg/220px-Saimiri_sciureus-1_Luc_Viatour.jpg\",\"price\":11000},{\"count\":0,\"name\":\"Golden Lion Tamarin\",\"description\":\"The golden lion tamarin also known as the golden marmoset, is a small New World monkey of the family Callitrichidae.\",\"image\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Golden_lion_tamarin_portrait3.jpg/220px-Golden_lion_tamarin_portrait3.jpg\",\"price\":19000}]";
-        
-        //public List<Button> menuBtn = new List<Button>();
-        static bool basketIsEmpty = true;
+    {    
+        //static bool basketIsEmpty = true;
         bool loading = true;
-        static string path2 = "https://montemagno.com/Monkeys.json";
-        private readonly HttpClient http = new HttpClient();
-        List<Dish> allDishes=new List<Dish>();
-
-        //public MyObservableCollection<Dish> Menu=new MyObservableCollection<Dish>();
-        public ObservableCollection<Dish> Dishes { get; set; } = new ObservableCollection<Dish>();
-        public ObservableCollection<razdel> razdely { get; set; } = new ObservableCollection<razdel>();
-        public ObservableCollection<ScrollView> scrolls{ get; set; } = new ObservableCollection<ScrollView>();
+        //private readonly HttpClient http = new HttpClient();
+        public ObservableCollection<ScrollView> scrolls { get; set; } = new ObservableCollection<ScrollView>();
         public ObservableCollection<Dish> recipes_cat { get; set; } = new ObservableCollection<Dish>();
-
         public List<ObservableCollection<Dish>> My_menu = new List<ObservableCollection<Dish>>();
-
         public List<Dish> dishes = new List<Dish>();
-
-        static public List<Dish> dishesList = new List<Dish>();
+        //static public List<Dish> dishesList = new List<Dish>();
         public static List<string> dishesnameList = new List<string>();//название добавленных в корзину блюд
-        static CarouselView carousel = new CarouselView();
         public MenuPage()
         {
             InitializeComponent();
             BindingContext = this;
         }
-        void Carousel()
+        protected override void OnAppearing()
         {
-            foreach(ObservableCollection<Dish> dishes in My_menu)
+            base.OnAppearing();
+            if (loading)
             {
-                scrolls.Add(new ScrollView { Content = MenuStack(dishes) });
+                MenuLoad();
+            }
+        }
+        void FillMenu()
+        {
+            foreach (ObservableCollection<Dish> dishes in My_menu)
+            {
+                scrolls.Add(new ScrollView { Content = FillMenuSection(dishes) });
             }
         }
 
-        StackLayout MenuStack(ObservableCollection<Dish> dishes)
+        StackLayout FillMenuSection(ObservableCollection<Dish> dishes)
         {
             StackLayout stack = new StackLayout();
-            foreach(Dish d in dishes)
+            foreach (Dish d in dishes)
             {
-                stack.Children.Add(MenuItem(d));
+                stack.Children.Add(BuildDishItem(d));
             }
             return stack;
         }
-        public Frame MenuItem(Dish dish)
+        public Frame BuildDishItem(Dish dish)
         {
-            Image image = new Image 
+            Image image = new Image
             {
                 Source = dish.image,
-                Aspect=Aspect.AspectFill,
-                HeightRequest=150,
-                WidthRequest=150
+                Aspect = Aspect.AspectFill,
+                HeightRequest = 150,
+                WidthRequest = 150
             };
             Label price = new Label
             {
@@ -111,8 +97,8 @@ namespace BorschISmetanka.Views
                 FontSize = 15,
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.Center,
-                MaxLines=5,
-                LineBreakMode=LineBreakMode.TailTruncation
+                MaxLines = 5,
+                LineBreakMode = LineBreakMode.TailTruncation
             };
             Button ToBasketBtn = new Button
             {
@@ -121,7 +107,7 @@ namespace BorschISmetanka.Views
                 BackgroundColor = Color.White,
                 BorderColor = Color.LimeGreen,
                 BorderWidth = 1.5,
-                CornerRadius = 5                
+                CornerRadius = 5
             };
             ToBasketBtn.Clicked += ToBasket_Click;
             Grid internalGrid2 = new Grid();
@@ -139,99 +125,74 @@ namespace BorschISmetanka.Views
             Grid.SetColumn(internalGrid2, 1);
             externalGrid.Children.Add(internalGrid1);
             externalGrid.Children.Add(internalGrid2);
-            Frame frame= new Frame { Content = externalGrid };
-            var tapGestureRecognizer = new TapGestureRecognizer();
-            tapGestureRecognizer.Tapped += TapGestureRecognizer_Tapped;
-            tapGestureRecognizer.NumberOfTapsRequired = 2;
-            frame.GestureRecognizers.Add(tapGestureRecognizer);
-            return frame; 
+            Frame frame = new Frame { Content = externalGrid };
+            return frame;
 
-        }
-        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        }       
+        private async void MenuLoad()
         {
-            //((Frame)sender).Height=
-
-        }
-        public void ButtonClick(object s, EventArgs e)
-        {
-            ((Button)s).Text = "fff";
-        }
-
-        public async Task<string> getAsync(string uri) //get запрос к БД
-        {
-            HttpClientHandler handler = new HttpClientHandler();
-            handler.ServerCertificateCustomValidationCallback = delegate { return true; };
-            HttpClient httpClient = new HttpClient(handler);
-            httpClient.Timeout = TimeSpan.FromSeconds(1000);
-
-            var response = await httpClient.GetStringAsync(uri);
-
-            return await Task.Run(() => response.ToString());
-        }
-
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
-            if (loading)
+            try
             {
-                string response = await getAsync("http://192.168.0.102:3000/api/Dishes");
-
-                dishes = JsonConvert.DeserializeObject<List<Dish>>(response);
-                //var dishes= JsonConvert.DeserializeObject<List<Recipes_cat>>(response);
-                //recipes_cat = JsonConvert.DeserializeObject<ObservableCollection<Recipes_cat>>(recipes);
-
-                foreach (Dish dish in dishes)
+                string response = await App.getAsync(App.ip + "Dishes",300);
+                if (response != "[]")
                 {
-                    bool ok = true;
-                    foreach(Dish dish1 in recipes_cat)
+                    dishes = JsonConvert.DeserializeObject<List<Dish>>(response);
+                    foreach (Dish dish in dishes)
                     {
-                        if(dish.category == dish1.category)
+                        bool ok = true;
+                        foreach (Dish dish1 in recipes_cat)
                         {
-                            ok = false;
-                            break;
+                            if (dish.category == dish1.category)
+                            {
+                                ok = false;
+                                break;
+                            }
+                        }
+                        if (ok)
+                        {
+                            recipes_cat.Add(dish);
+                            Button button = new Button
+                            {
+                                Text = dish.category,
+                                TextColor = Color.Gray,
+                                BorderColor = Color.Gray,
+                                BorderWidth = 2,
+                                BackgroundColor = Color.White,
+                                CornerRadius = 30
+                            };
+                            button.Clicked += MenuButton_Click;
+                            ButtonStack.Children.Add(button);
                         }
                     }
-                    if (ok)
+                    foreach (Dish recipes_cat in recipes_cat)
                     {
-                        recipes_cat.Add(dish);
-                        Button button = new Button
+                        ObservableCollection<Dish> d = new ObservableCollection<Dish>();
+                        foreach (Dish dishes in dishes)
                         {
-                            Text = dish.category,
-                            TextColor = Color.Gray,
-                            BorderColor = Color.Gray,
-                            BorderWidth = 2,
-                            BackgroundColor = Color.White,
-                            CornerRadius = 30
-                        };
-                        button.Clicked += MenuButton_Click;
-                        ButtonStack.Children.Add(button);
-                    }
-                }
-
-                foreach(Dish recipes_cat in recipes_cat)
-                {
-                    ObservableCollection<Dish> d = new ObservableCollection<Dish>();
-                    foreach(Dish dishes in dishes)
-                    {
-                        if(recipes_cat.category == dishes.category)
-                        {
-                            d.Add(dishes);
+                            if (recipes_cat.category == dishes.category)
+                            {
+                                d.Add(dishes);
+                            }
                         }
+                        My_menu.Add(d);
                     }
-                    My_menu.Add(d);
+                    FillMenu();
+                    menuSV.Content = scrolls[0].Content;
+                    CurrentButton(0);
+                    loading = false;
                 }
-
-                Carousel();
-                menuSV.Content = scrolls[0].Content;
-                CurrentButton(0);
-                loading = false;
+            }
+            catch(Exception ex)
+            {
+                await DisplayAlert("Отсутствует подключение к серверу", "Проверьте соединение", "Ок");
             }
         }
         static public void RemoveFromDishList(int index)
         {
             dishesnameList.RemoveAt(index);
         }
-        static bool DishAdded(Dish dish, List<Dish> dishes)
+        //sta
+        static bool DishHasAdded(Dish dish, List<Dish> dishes)
         {
             foreach (Dish d in dishes)
             {
@@ -244,29 +205,18 @@ namespace BorschISmetanka.Views
         {
             return dishesnameList.IndexOf(dish.name);
         }
-        //static void CreateCacheFile()
-        //{
-        //    if (!Directory.Exists(AppShell.cacheFolderPath))
-        //        Directory.CreateDirectory(AppShell.cacheFolderPath);
-        //    if (!cacheExist)
-        //    {
-        //        using (FileStream stream = File.Create(AppShell.basketCachePath)) ;
-        //        cacheExist = true;
-        //    }
-        //    //if (!File.Exists(AppShell.basketCachePath))
-        //    //    File.Create(AppShell.basketCachePath);
-        //}
         static void AddToBasketCache(Dish dish)
-         {
-            //CreateCacheFile();
+        {
             string list;
+            dish.count = 0;
             List<Dish> dishes = new List<Dish>();
-            if (dishesnameList.Count==0)
+            if (dishesnameList.Count == 0)
             {
                 using (StreamWriter writer = new StreamWriter(App.basketCachePath)) /*(FileStream writer = File.OpenWrite(AppShell.basketCachePath))*/
                 {
                     dishes.Add(dish);
                     dishes[0].count++;
+
                     dishesnameList.Add(dish.name);
                     string s = JsonConvert.SerializeObject(dishes);
                     writer.Write(s);
@@ -277,9 +227,9 @@ namespace BorschISmetanka.Views
             {
                 using (StreamReader reader = new StreamReader(File.OpenRead(App.basketCachePath)))
                 {
-                    string s = reader.ReadToEnd();          
+                    string s = reader.ReadToEnd();
                     dishes = JsonConvert.DeserializeObject<List<Dish>>(s);
-                    if (DishAdded(dish, dishes))
+                    if (DishHasAdded(dish, dishes))
                         dishes[DishesIndex(dish)].count++;
                     else
                     {
@@ -288,7 +238,7 @@ namespace BorschISmetanka.Views
                         dishes[dishes.Count - 1].count++;
                     }
                 }
-                using (StreamWriter writer = new StreamWriter(File.Create(App.basketCachePath))) 
+                using (StreamWriter writer = new StreamWriter(File.Create(App.basketCachePath)))
                 {
                     list = JsonConvert.SerializeObject(dishes);
                     writer.Write(list);
@@ -300,7 +250,7 @@ namespace BorschISmetanka.Views
         {
             Grid grid = (Grid)(((Button)sender).Parent);
             string name = ((Label)(grid.Children[0])).Text;
-            foreach (Dish d in recipes_cat)
+            foreach (Dish d in dishes)
             {
                 if (name == d.name)
                 {
@@ -314,7 +264,6 @@ namespace BorschISmetanka.Views
         {
             var indexOfIntegerValue = ButtonStack.Children.IndexOf((Button)sender);
             CurrentButton(indexOfIntegerValue);
-            //productCarousel.ScrollTo(indexOfIntegerValue);
             menuSV.Content = scrolls[indexOfIntegerValue].Content;
         }
         public void CurrentButton(int currentIndex)
@@ -323,8 +272,8 @@ namespace BorschISmetanka.Views
             {
                 if (i == currentIndex)
                 {
-                    ((Button)ButtonStack.Children[i]).TextColor = Color.LimeGreen;
-                    ((Button)ButtonStack.Children[i]).BorderColor = Color.LimeGreen;
+                    ((Button)ButtonStack.Children[i]).TextColor = Color.FromHex("e34f4f");
+                    ((Button)ButtonStack.Children[i]).BorderColor = Color.FromHex("e34f4f");
                 }
                 else
                 {
@@ -338,4 +287,4 @@ namespace BorschISmetanka.Views
             CurrentButton(((CarouselView)sender).Position);
         }
     }
-} 
+}

@@ -1,5 +1,4 @@
 ﻿using BorschISmetanka.Models;
-using BorschISmetanka.ViewModels;
 using BorschISmetanka.Views;
 using System;
 using System.Collections.Generic;
@@ -9,16 +8,14 @@ using Xamarin.Forms;
 
 namespace BorschISmetanka
 {
-    public partial class AppShell : Xamarin.Forms.Shell
+    public partial class AppShell : Shell
     {
         
         public AppShell()
         {
-            InitializeComponent();            
-            Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
-            Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
+            InitializeComponent();
+            Routing.RegisterRoute("Profile", typeof(ProfilePage));
+            Routing.RegisterRoute("Registration", typeof(Registration));
         }
-        
-
     }
 }

@@ -14,38 +14,36 @@
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
-                <Setter Property="Shell.ForegroundColor" Value="White" />
-                <Setter Property="Shell.TitleColor" Value="White" />
-                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.BackgroundColor" Value="WhiteSmoke" />
+                <Setter Property="Shell.ForegroundColor" Value="Black" />
+                <Setter Property="Shell.TitleColor" Value="Black" />
+                <Setter Property="Shell.DisabledColor" Value="#Red" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
-                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
-                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
-                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
-                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+                <Setter Property="Shell.TabBarBackgroundColor" Value="WhiteSmoke" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="Black"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="DarkGray"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="#e34f4f"/>
             </Style>
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
             <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
         </ResourceDictionary>
     </Shell.Resources>
 
-    <TabBar>
+    
+    <TabBar Route="tabBar">
         <ShellContent Route="Menu" Title="Меню" Icon="icon_menu.png"  ContentTemplate="{DataTemplate local:MenuPage}" />
-        <ShellContent Title="Заказы" Icon="icon_order.png" ContentTemplate="{DataTemplate local:OrderPage}" />
+        <ShellContent Route="Orders"  Title="Заказы" Icon="icon_order.png" ContentTemplate="{DataTemplate local:OrderPage}" />
         <ShellContent Route="Basket" Title="Корзина" Icon="icon_basket.png"  ContentTemplate="{DataTemplate local:BasketPage}" />
-        <ShellContent Route="Pofile" Title="Профиль" Icon="icon_profile.png"  ContentTemplate="{DataTemplate local:ProfilePage}" />
+        <ShellContent Route="Login" Title="Профиль" Icon="icon_profile.png"  ContentTemplate="{DataTemplate local:LoginPage}" />
     </TabBar>
-    <FlyoutItem>
-        <ShellContent Route="Menu" Title="Меню" Icon="icon_menu.png"  ContentTemplate="{DataTemplate local:MenuPage}" />
-    </FlyoutItem>
-
+    <TabBar>
+        <ShellContent Route="Profile" ContentTemplate="{DataTemplate local:ProfilePage}"/>
+    </TabBar>
     <!--
         If you would like to navigate to this content you can do so by calling
         await Shell.Current.GoToAsync("//LoginPage");
     -->
-    <TabBar>
-        <ShellContent Route="Login" ContentTemplate="{DataTemplate local:LoginPage}" />
-    </TabBar>
+    
 
 
 </Shell>

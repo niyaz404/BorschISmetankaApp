@@ -7,7 +7,7 @@
              x:Class="BorschISmetanka.Views.LoginPage"
              Shell.NavBarIsVisible="False">
 
-    <Grid Padding="10">
+    <Grid Padding="60,0,60,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
             <RowDefinition Height="40"/>
@@ -17,13 +17,16 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="45"/>
             <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
         </Grid.RowDefinitions>
-        <Label Text="Авторизация" HorizontalOptions="Center" Grid.Row="1" FontSize="22" FontAttributes="Bold"/>
-        <Label Text="Логин" HorizontalOptions="Center" Grid.Row="2" FontSize="18"/>
-        <Entry x:Name="loginEntry" Placeholder="Введите логин" Grid.Row="3" HorizontalOptions="Center"/>
-        <Label Text="Пароль" HorizontalOptions="Center" Grid.Row="4" FontSize="18"/>
-        <Entry x:Name="pswnEntry" Placeholder="Введите пароль" HorizontalOptions="Center" IsPassword="True" Grid.Row="5"/>
-        <Button Text="Войти" HorizontalOptions="Center" Grid.Row="6" WidthRequest="120"/>
-        <Button Text="Регистрация" HorizontalOptions="Center" Grid.Row="7" WidthRequest="120"/>
+        <Label x:Name="errorLabel" TextColor="Red" HorizontalOptions="Center" Grid.Row="7"/>
+        <Label Text="Авторизация" Grid.Row="1" TextColor="Black" FontSize="22" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+        <Label Text="Номер телефона" Grid.Row="2" FontSize="18"/>
+        <Entry x:Name="numEntry"  Placeholder="Введите номер телефона" Grid.Row="3" TextChanged="numEntry_TextChanged" MaxLength="11" Keyboard="Telephone"/>
+        <Label Text="Пароль" Grid.Row="4" FontSize="18"/>
+        <Entry x:Name="pswEntry" Placeholder="Введите пароль" IsPassword="True" Grid.Row="5"/>
+        <Button Text="Войти" Grid.Row="8" WidthRequest="120" BackgroundColor="LimeGreen" Clicked="Login_Clicked"/>
+        <Button Text="Регистрация"  Grid.Row="9" WidthRequest="120" BackgroundColor="LimeGreen" Clicked="ToRegistrationPageBtn_Clicked"/>
     </Grid>
 </ContentPage>

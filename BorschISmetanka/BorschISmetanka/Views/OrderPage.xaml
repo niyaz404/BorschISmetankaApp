@@ -3,12 +3,13 @@
                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:map="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
                  x:Class="BorschISmetanka.Views.OrderPage"
                      Title="Заказы">
-    <ScrollView x:Name="mainScrollV">
+    <ScrollView x:Name="mainScrollV" BackgroundColor="WhiteSmoke" Padding="10">
         <Grid x:Name="grid" Padding="7,0,7,10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="400"/>
                 <RowDefinition Height="30"/>
-                <RowDefinition Height="400"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
             <Frame HasShadow="False">
                 <Frame.GestureRecognizers>
@@ -24,7 +25,7 @@
                         <x:Arguments>
                             <map:MapSpan>
                                 <x:Arguments>
-                                    <map:Position>
+                                    <map:Position x:Name="USATU">
                                         <x:Arguments>
                                             <x:Double>54.725019721084095</x:Double>
                                             <x:Double>55.94091973567985</x:Double>
@@ -53,6 +54,9 @@
                 </Grid>
             </Frame>
             <Label Text="Ваши заказы:" TextColor="Black" FontSize="18" Grid.Row="1" Margin="15,0,0,0" />
+            <StackLayout x:Name="orderStack" Grid.Row="2">
+
+            </StackLayout>
         </Grid>
     </ScrollView>
 </ContentPage>

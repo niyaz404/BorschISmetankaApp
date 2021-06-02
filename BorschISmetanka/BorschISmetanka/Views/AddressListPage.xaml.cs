@@ -22,15 +22,26 @@ namespace BorschISmetanka.Views
         {
             InitializeComponent();
             addressList = new List<string>();
-            stack = new StackLayout { Padding = 15 };
-            LoadUserAddress();
+            stack = new StackLayout { Padding = 15 };           
             scrollview.Content = stack;
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            LoadUserAddress();
         }
         void LoadUserAddress()
         {
-            foreach (Address add in App.USER.addresses)
+            addressCnt = 0;
+            favAddressIndex = 0;
+            addressList.Clear();
+            stack.Children.Clear();
+            if (App.USER != null)
             {
-                AddAddress(add.GetAddress());
+                foreach (Address add in App.USER.addresses)
+                {
+                    AddAddress(add);
+                }
             }
         }
         protected override void OnDisappearing()
@@ -51,7 +62,15 @@ namespace BorschISmetanka.Views
                 if (cityEntry.Text != "" && streetEntry.Text != "" && houseEntry.Text != "")
                 {
                     Address address = new Address(cityEntry.Text, streetEntry.Text, houseEntry.Text, flatEntry.Text,true);
-                    App.USER.addresses.Add(address);
+                    if (App.USER!=null)
+                    {
+                        App.USER.addresses.Add(address);
+                        App.WriteToCache();
+                    }
+                    else
+                    {
+                        BasketPage.AddToPicker(address);
+                    }
                     cityEntry.Text = "";
                     streetEntry.Text = "";
                     houseEntry.Text = "";
@@ -59,9 +78,10 @@ namespace BorschISmetanka.Views
                     cityEntry.BackgroundColor = Color.WhiteSmoke;
                     streetEntry.BackgroundColor = Color.WhiteSmoke;
                     houseEntry.BackgroundColor = Color.WhiteSmoke;
-                    AddAddress(address.GetAddress());
+                    AddAddress(address.GetAddress());                    
                     await addressFrame.TranslateTo(0, 0, 200, Easing.CubicInOut);
                     _isExpanded = false;
+                    ((Button)sender).Text = "Добавить новый адрес";
                     addressFrame.Opacity = 0;
                 }
                 else
@@ -80,17 +100,39 @@ namespace BorschISmetanka.Views
                         houseEntry.BackgroundColor = Color.WhiteSmoke;
                 }
             }
-        }        
+        }  
+        void AddAddress(Address add)
+        {
+            if (addressCnt == App.USER.addresses.Count)
+            {
+                addressCnt = 0;
+                favAddressIndex = 0;
+                addressList.Clear();
+            }
+            stack.Children.Add(new AddressItem(add.GetAddress()));
+            addressList.Add(add.GetAddress());
+            addressCnt++;
+            if (add.IsFavorite)
+            {
+                ((Grid)((SwipeView)stack.Children[favAddressIndex]).Content).BackgroundColor = Color.White;
+                favAddressIndex = addressCnt - 1;
+                ((Grid)((SwipeView)stack.Children[favAddressIndex]).Content).BackgroundColor = Color.LimeGreen;
+            }
+        }
         private void AddAddress(string label)
         {
             stack.Children.Add(new AddressItem(label));
             addressList.Add(label);
             addressCnt++;
+
             ((Grid)((SwipeView)stack.Children[favAddressIndex]).Content).BackgroundColor = Color.White;
             favAddressIndex = addressCnt - 1;
             ((Grid)((SwipeView)stack.Children[favAddressIndex]).Content).BackgroundColor = Color.LimeGreen;
-            for (int i = 0; i < App.USER.addresses.Count - 1; i++)
-                App.USER.addresses[i].IsFavorite = false;
+            if (App.USER != null)
+            {
+                for (int i = 0; i < App.USER.addresses.Count - 1; i++)
+                    App.USER.addresses[i].IsFavorite = false;
+            }
         }
         public static void OnDeleteInvoked(object sender, EventArgs e)
         {
@@ -115,7 +157,9 @@ namespace BorschISmetanka.Views
                 if (s == address)
                 {
                     ((Grid)((SwipeView)stack.Children[favAddressIndex]).Content).BackgroundColor = Color.White;
+                    App.USER.addresses[favAddressIndex].IsFavorite = false;
                     favAddressIndex = addressList.IndexOf(address);
+                    App.USER.addresses[favAddressIndex].IsFavorite = true;
                     ((Grid)((SwipeView)stack.Children[favAddressIndex]).Content).BackgroundColor = Color.LimeGreen;
                     break;
                 }

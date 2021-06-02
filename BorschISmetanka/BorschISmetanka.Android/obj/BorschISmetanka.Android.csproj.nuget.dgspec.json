@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Visual Studio 2019 Project\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka.Android\\BorschISmetanka.Android.csproj": {}
+    "C:\\Univer\\AIS full\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka.Android\\BorschISmetanka.Android.csproj": {}
   },
   "projects": {
-    "D:\\Visual Studio 2019 Project\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka.Android\\BorschISmetanka.Android.csproj": {
+    "C:\\Univer\\AIS full\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka.Android\\BorschISmetanka.Android.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Visual Studio 2019 Project\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka.Android\\BorschISmetanka.Android.csproj",
+        "projectUniqueName": "C:\\Univer\\AIS full\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka.Android\\BorschISmetanka.Android.csproj",
         "projectName": "BorschISmetanka.Android",
-        "projectPath": "D:\\Visual Studio 2019 Project\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka.Android\\BorschISmetanka.Android.csproj",
-        "packagesPath": "C:\\Users\\пользователь\\.nuget\\packages\\",
-        "outputPath": "D:\\Visual Studio 2019 Project\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka.Android\\obj\\",
+        "projectPath": "C:\\Univer\\AIS full\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka.Android\\BorschISmetanka.Android.csproj",
+        "packagesPath": "C:\\Users\\Serezha\\.nuget\\packages\\",
+        "outputPath": "C:\\Univer\\AIS full\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka.Android\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\пользователь\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Serezha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -32,8 +32,8 @@
         "frameworks": {
           "monoandroid11.0": {
             "projectReferences": {
-              "D:\\Visual Studio 2019 Project\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka.csproj": {
-                "projectPath": "D:\\Visual Studio 2019 Project\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka.csproj"
+              "C:\\Univer\\AIS full\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka.csproj": {
+                "projectPath": "C:\\Univer\\AIS full\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka.csproj"
               }
             }
           }
@@ -58,21 +58,21 @@
         }
       }
     },
-    "D:\\Visual Studio 2019 Project\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka.csproj": {
+    "C:\\Univer\\AIS full\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Visual Studio 2019 Project\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka.csproj",
+        "projectUniqueName": "C:\\Univer\\AIS full\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka.csproj",
         "projectName": "BorschISmetanka",
-        "projectPath": "D:\\Visual Studio 2019 Project\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka.csproj",
-        "packagesPath": "C:\\Users\\пользователь\\.nuget\\packages\\",
-        "outputPath": "D:\\Visual Studio 2019 Project\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka\\obj\\",
+        "projectPath": "C:\\Univer\\AIS full\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka.csproj",
+        "packagesPath": "C:\\Users\\Serezha\\.nuget\\packages\\",
+        "outputPath": "C:\\Univer\\AIS full\\BorschISmetanka\\BorschISmetanka\\BorschISmetanka\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\пользователь\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Serezha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -112,6 +112,10 @@
             "System.Text.Json": {
               "target": "Package",
               "version": "[5.0.2, )"
+            },
+            "Xam.Plugin.Geolocator": {
+              "target": "Package",
+              "version": "[4.5.0.6, )"
             },
             "Xamarin.Essentials": {
               "target": "Package",

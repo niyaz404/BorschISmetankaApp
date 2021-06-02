@@ -24,8 +24,7 @@ namespace BorschISmetanka.Views
         static public bool cacheNeedToRefresh = false;//true, когда необходимо переписать кэш
         static public string Summ = 0.ToString();
         static public int Sum;
-        public static Picker addressPicker;
-
+        public static Picker addressPicker;        
         /// <summary>
         public bool b = true;
         /// </summary>
@@ -53,16 +52,24 @@ namespace BorschISmetanka.Views
         void RefreshPicker()
         {
             addressPicker.Items.Clear();
-            for (int i = 0; i < App.USER.addresses.Count; i++) 
+            if (App.USER != null)
             {
+                for (int i = 0; i < App.USER.addresses.Count; i++)
+                {
                     addressPicker.Items.Add(App.USER.addresses[i].GetAddress());
-                if (App.USER.addresses[i].IsFavorite)
-                    addressPicker.SelectedItem = addressPicker.Items[i];
+                    if (App.USER.addresses[i].IsFavorite)
+                        addressPicker.SelectedItem = addressPicker.Items[i];
+                }
+            }
+            else
+            {
+
             }
         }
         public static void AddToPicker(Address add)
         {
             addressPicker.Items.Add(add.GetAddress());
+            addressPicker.SelectedIndex=0;
         }
         protected async override void OnDisappearing()
         {
@@ -72,10 +79,10 @@ namespace BorschISmetanka.Views
         }
         void AddProduct(Dish dish)
         {
+            backLabel.Text = "";
             Image image = new Image { Source =dish.image };
             long price = dish.price;            
             //string price = ""; Цена блюда
-            int Price = 350;
             Label Name = new Label
             {
                 Text = dish.name,
@@ -124,76 +131,16 @@ namespace BorschISmetanka.Views
             Frame frame = new Frame();
             frame.Content = externalGrid;
             BasketStack.Children.Add(frame);
-        }
-        public void AddDish(List<Dish> dishesList,int index)//кривое добавление в корзину
+        }       
+        public void RemoveDish(Dish dish)
         {
-            if (dishesList.Count==basketList.Count)
-            {               
-                ((Stepper)((Grid)((Grid)((Frame)BasketStack.Children[index]).Content).Children[2]).Children[1]).Value++;
-            }
-            else
-            {
-                basketList.Add(dishesList[index]);
-                Image image = new Image { Source = basketList[basketList.Count - 1].image };
-                //string price = ""; Цена блюда
-                int Price = 350;
-                Label Name = new Label
-                {
-                    Text = basketList[basketList.Count - 1].name,
-                    FontAttributes = FontAttributes.Bold,
-                    FontSize = 18,
-                    HorizontalOptions = LayoutOptions.Center,
-                    VerticalOptions = LayoutOptions.Start
-                };
-                Grid.SetColumn(image, 0);
-                Grid.SetColumn(Name, 1);
-                Grid internalGrid1 = new Grid();
-                internalGrid1.Children.Add(image);
-                internalGrid1.Children.Add(Name);
-                Stepper counter = new Stepper
-                {
-                    HorizontalOptions = LayoutOptions.End,
-                    VerticalOptions = LayoutOptions.Center,
-                    Value = 1
-                };
-                counter.ValueChanged += StepperValue_Change;
-                Label PriceLabel = new Label
-                {
-                    Text = (Price * counter.Value).ToString() + "руб",
-                    FontAttributes = FontAttributes.Bold,
-                    FontSize = 18,
-                    HorizontalOptions = LayoutOptions.Start,
-                    VerticalOptions = LayoutOptions.Center
-                };
-                Grid.SetColumn(PriceLabel, 0);
-                Grid.SetColumn(counter, 1);
-                Grid internalGrid2 = new Grid();
-                internalGrid2.Children.Add(PriceLabel);
-                internalGrid2.Children.Add(counter);
-                internalGrid2.ColumnDefinitions.Add(new ColumnDefinition { Width = 70 });
-                BoxView line = new BoxView { BackgroundColor = Color.Silver };
-                Grid.SetRow(internalGrid1, 0);
-                Grid.SetRow(line, 1);
-                Grid.SetRow(internalGrid2, 2);
-                Grid externalGrid = new Grid();
-                externalGrid.RowDefinitions.Add(new RowDefinition { Height = 80 });
-                externalGrid.RowDefinitions.Add(new RowDefinition { Height = 2 });
-                externalGrid.RowDefinitions.Add(new RowDefinition { Height = 50 });
-                externalGrid.Children.Add(internalGrid1);
-                externalGrid.Children.Add(line);
-                externalGrid.Children.Add(internalGrid2);
-                Frame frame = new Frame();
-                frame.Content = externalGrid;
-                BasketStack.Children.Add(frame);
-            }
-        }
-
-        static public void RemoveDish(Dish dish)
-        {
+            dish.count = 0;
             int index = DishesInBasket.IndexOf(dish);
             DishesInBasket.RemoveAt(index);
             BasketStack.Children.RemoveAt(index);
             MenuPage.RemoveFromDishList(index);
+            if(DishesInBasket.Count==0)
+                backLabel.Text = "Корзина пуста";
         }
         public void RefreshBasket()
         {
@@ -210,31 +157,35 @@ namespace BorschISmetanka.Views
                     AddProduct(dish);
                 }
             }
-            CalculateSum();
+            CalculateBasketPrice();
         }
-        void AddToOrdersCache(Order newOrder)
+        public void AddToOrdersCache(Order newOrder)
         {
             List<Order> orders = new List<Order>();
-            if (b)
+            string cacheJson;
+            using (StreamReader reader = new StreamReader(File.OpenRead(App.ordersCachePath)))
             {
-                using (StreamWriter writer = new StreamWriter(App.ordersCachePath)) /*(FileStream writer = File.OpenWrite(AppShell.basketCachePath))*/
+                cacheJson = reader.ReadToEnd();
+            }
+            if (String.IsNullOrEmpty(cacheJson))
+            {
+                using (StreamWriter writer = new StreamWriter(File.OpenWrite(App.ordersCachePath)))
                 {
                     orders.Add(newOrder);
                     string s = JsonConvert.SerializeObject(orders);
                     writer.Write(s);
                     writer.Close();
                 }
-                b = false;
             }
             else
             {
-                using (StreamReader reader = new StreamReader(File.OpenRead(App.basketCachePath)))
+                using (StreamReader reader = new StreamReader(File.OpenRead(App.ordersCachePath)))
                 {
                     string s = reader.ReadToEnd();
                     orders = JsonConvert.DeserializeObject<List<Order>>(s);
                     orders.Add(newOrder);
                 }
-                using (StreamWriter writer = new StreamWriter(File.Create(App.basketCachePath)))
+                using (StreamWriter writer = new StreamWriter(File.Create(App.ordersCachePath)))
                 {
                     string list = JsonConvert.SerializeObject(orders);
                     writer.Write(list);
@@ -242,14 +193,18 @@ namespace BorschISmetanka.Views
                 }
             }
         }
-        void CalculateSum()
+        void CalculateBasketPrice()
         {
             Sum = 0;
             foreach (Dish d in DishesInBasket)
             {
-                Sum += d.count * d.price;
+                Sum += CalculateDishPrice(d.count,d.price);
             }
             sumLabel.Text = Sum.ToString() + " руб";
+        }
+        public static int CalculateDishPrice(int count, int price)
+        {
+            return count * price;
         }
         public void StepperValue_Change(object sender,ValueChangedEventArgs e)
         {
@@ -259,18 +214,20 @@ namespace BorschISmetanka.Views
                 if(d.name== ((Label)((Grid)((Grid)((Grid)(stepper.Parent)).Parent).Children[0]).Children[1]).Text)
                 {
                     if (stepper.Value == 0)
+                    {
                         RemoveDish(d);
+                    }
                     else
                     {
-                        ((Label)((Grid)(stepper.Parent)).Children[0]).Text = (Convert.ToInt32(d.price) * stepper.Value).ToString()+" руб";
-                        d.count=Convert.ToInt32(stepper.Value);
+                        ((Label)((Grid)(stepper.Parent)).Children[0]).Text = (Convert.ToInt32(d.price) * stepper.Value).ToString() + " руб";
+                        d.count = Convert.ToInt32(stepper.Value);
                         DishesInBasket[DishesInBasket.IndexOf(d)].count = d.count;
                     }
                     break;
                 }
             }
             cacheNeedToRefresh = true;
-            CalculateSum();
+            CalculateBasketPrice();
             //int index = productList[0].IndexOf(((Label)((Grid)((Grid)((Grid)(stepper.Parent)).Parent).Children[0]).Children[1]).Text);
             //if (stepper.Value == 0)
             //    RemoveProduct(index);
@@ -310,36 +267,48 @@ namespace BorschISmetanka.Views
         }
         async void  ToOrderBtn_Click(object sender, EventArgs e)
         {
-            if(DishesInBasket.Count!=0)
-            if (!_isExpanded)
+            if (App.USER == null)
             {
-                await orderFrame.TranslateTo(0, -500, 200, Easing.CubicInOut);
-                RefreshPicker();
-                orderFrame.Opacity = 1;
-                orderingBtn1.IsEnabled = false;
-                orderingBtn1.Opacity = 0;
-                line.IsVisible = false;
-                sumLabel.IsVisible = false;
-                _isExpanded = true;
+                await DisplayAlert("Авторизуйтесь,чтобы сделать заказ", "", "Ок");
+            }
+            else
+            {
+                if (DishesInBasket.Count != 0)
+                    if (!_isExpanded)
+                    {
+                        await orderFrame.TranslateTo(0, -500, 200, Easing.CubicInOut);
+                        RefreshPicker();
+                        orderFrame.Opacity = 1;
+                        orderingBtn1.IsEnabled = false;
+                        orderingBtn1.Opacity = 0;
+                        line.IsVisible = false;
+                        sumLabel.IsVisible = false;
+                        _isExpanded = true;
+                    }
             }
         }
         async void Checkout_Click(object sender, EventArgs e)
         {
-            //Order order = new Order(App.USER.addresses[addressPicker.SelectedIndex], DishesInBasket);
-            //int Sum = 0;
-            //foreach(Dish d in DishesInBasket)
-            //{
-            //    Sum += d.price;
-            //}
-            Order order = new Order {address= App.USER.addresses[addressPicker.SelectedIndex], date=DateTime.Now, status="Готовится", sum=Sum, dishes=DishesInBasket};
-            ////////////
+            Order order = new Order {address= App.USER.addresses[addressPicker.SelectedIndex],date=DateTime.Now,sum=Sum, dishes=DishesInBasket, с_id=App.USER.id};
+            order.dishesJson = JsonConvert.SerializeObject(order.dishes);
+            order.addressString = order.address.GetAddress();
             string orderJson = JsonConvert.SerializeObject(order);
-            ////////////
-            //OrderPage.CurrentOrder(order);
-            AddToOrdersCache(order);
+            await App.postAsync(App.ip +"Orders", JsonConvert.SerializeObject(order));
+            try
+            {
+                var response = await App.getAsync(App.ip + "Orders/customer/" + App.USER.id + "/" + order.date.ToString("dd HH:mm"),100);
+                var orderFromResponse = JsonConvert.DeserializeObject<Order>(response);
+                order.leadTime = orderFromResponse.leadTime;
+                order.id = orderFromResponse.id;
+            }
+            catch(Exception ex)
+            {
+                await DisplayAlert("Отсутствует соединение с сервером", "Проверьте соединение", "Ок");
+            }
+            App.USER.orders.Add(order);
+            App.WriteToCache();
+            //AddToOrdersCache(order);
             DishesInBasket.Clear();
-            //using (FileStream stream = File.Create(App.basketCachePath));
-            //File.WriteAllText(App.basketCachePath, String.Empty);
             await orderFrame.TranslateTo(0, 0, 200, Easing.CubicInOut);            
             using (FileStream stream = File.Create(App.basketCachePath));
             orderFrame.Opacity = 0;
@@ -351,10 +320,13 @@ namespace BorschISmetanka.Views
             MenuPage.dishesnameList.Clear();
             OrderPage.needToRefresh=true;
             _isExpanded = false;
+            backLabel.Text = "Корзина пуста";
+            Sum = 0;
+            await Shell.Current.GoToAsync("///Orders");
         }
         async void AddAddress_Click(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(ProfilePage.addressPage);
+            await Navigation.PushAsync(new AddressListPage());
         }
 }
 }

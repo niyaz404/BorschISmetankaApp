@@ -1,0 +1,58 @@
+D:\Download\BorschISmetanka\BorschISmetanka\BorschISmetanka\bin\Release\netstandard2.0\BorschISmetanka.deps.json
+D:\Download\BorschISmetanka\BorschISmetanka\BorschISmetanka\bin\Release\netstandard2.0\BorschISmetanka.dll
+D:\Download\BorschISmetanka\BorschISmetanka\BorschISmetanka\bin\Release\netstandard2.0\ref\BorschISmetanka.dll
+D:\Download\BorschISmetanka\BorschISmetanka\BorschISmetanka\bin\Release\netstandard2.0\BorschISmetanka.pdb
+D:\Download\BorschISmetanka\BorschISmetanka\BorschISmetanka\bin\Release\netstandard2.0\Mono.Android.dll
+D:\Download\BorschISmetanka\BorschISmetanka\BorschISmetanka\bin\Release\netstandard2.0\Mono.Android.pdb
+D:\Download\BorschISmetanka\BorschISmetanka\BorschISmetanka\bin\Release\netstandard2.0\Mono.Android.xml
+D:\Download\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\BorschISmetanka.csprojAssemblyReference.cache
+D:\Download\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\BorschISmetanka.Properties.Resources.resources
+D:\Download\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\BorschISmetanka.csproj.GenerateResource.cache
+D:\Download\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\App.xaml.g.cs
+D:\Download\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\AppShell.xaml.g.cs
+D:\Download\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\Views\AddressListPage.xaml.g.cs
+D:\Download\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\Views\BasketPage.xaml.g.cs
+D:\Download\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\Views\BonusPage.xaml.g.cs
+D:\Download\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\Views\LoginPage.xaml.g.cs
+D:\Download\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\Views\MenuPage.xaml.g.cs
+D:\Download\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\Views\OrderPage.xaml.g.cs
+D:\Download\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\Views\ProfilePage.xaml.g.cs
+D:\Download\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\Views\ProfileSetPage.xaml.g.cs
+D:\Download\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\Views\Registration.xaml.g.cs
+D:\Download\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\BorschISmetanka.AssemblyInfoInputs.cache
+D:\Download\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\BorschISmetanka.AssemblyInfo.cs
+D:\Download\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\BorschISmetanka.csproj.CoreCompileInputs.cache
+D:\Download\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\XamlC.stamp
+D:\Download\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\BorschISmetanka.csproj.CopyComplete
+D:\Download\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\BorschISmetanka.dll
+D:\Download\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\ref\BorschISmetanka.dll
+D:\Download\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\BorschISmetanka.pdb
+C:\Univer\AIS full\BorschISmetanka\BorschISmetanka\BorschISmetanka\bin\Release\netstandard2.0\BorschISmetanka.deps.json
+C:\Univer\AIS full\BorschISmetanka\BorschISmetanka\BorschISmetanka\bin\Release\netstandard2.0\BorschISmetanka.dll
+C:\Univer\AIS full\BorschISmetanka\BorschISmetanka\BorschISmetanka\bin\Release\netstandard2.0\ref\BorschISmetanka.dll
+C:\Univer\AIS full\BorschISmetanka\BorschISmetanka\BorschISmetanka\bin\Release\netstandard2.0\BorschISmetanka.pdb
+C:\Univer\AIS full\BorschISmetanka\BorschISmetanka\BorschISmetanka\bin\Release\netstandard2.0\Mono.Android.dll
+C:\Univer\AIS full\BorschISmetanka\BorschISmetanka\BorschISmetanka\bin\Release\netstandard2.0\Mono.Android.pdb
+C:\Univer\AIS full\BorschISmetanka\BorschISmetanka\BorschISmetanka\bin\Release\netstandard2.0\Mono.Android.xml
+C:\Univer\AIS full\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\BorschISmetanka.csprojAssemblyReference.cache
+C:\Univer\AIS full\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\BorschISmetanka.Properties.Resources.resources
+C:\Univer\AIS full\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\BorschISmetanka.csproj.GenerateResource.cache
+C:\Univer\AIS full\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\App.xaml.g.cs
+C:\Univer\AIS full\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\AppShell.xaml.g.cs
+C:\Univer\AIS full\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\Views\AddressListPage.xaml.g.cs
+C:\Univer\AIS full\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\Views\BasketPage.xaml.g.cs
+C:\Univer\AIS full\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\Views\BonusPage.xaml.g.cs
+C:\Univer\AIS full\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\Views\LoginPage.xaml.g.cs
+C:\Univer\AIS full\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\Views\MenuPage.xaml.g.cs
+C:\Univer\AIS full\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\Views\OrderPage.xaml.g.cs
+C:\Univer\AIS full\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\Views\ProfilePage.xaml.g.cs
+C:\Univer\AIS full\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\Views\ProfileSetPage.xaml.g.cs
+C:\Univer\AIS full\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\Views\Registration.xaml.g.cs
+C:\Univer\AIS full\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\BorschISmetanka.AssemblyInfoInputs.cache
+C:\Univer\AIS full\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\BorschISmetanka.AssemblyInfo.cs
+C:\Univer\AIS full\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\BorschISmetanka.csproj.CoreCompileInputs.cache
+C:\Univer\AIS full\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\XamlC.stamp
+C:\Univer\AIS full\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\BorschISmetanka.csproj.CopyComplete
+C:\Univer\AIS full\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\BorschISmetanka.dll
+C:\Univer\AIS full\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\ref\BorschISmetanka.dll
+C:\Univer\AIS full\BorschISmetanka\BorschISmetanka\BorschISmetanka\obj\Release\netstandard2.0\BorschISmetanka.pdb

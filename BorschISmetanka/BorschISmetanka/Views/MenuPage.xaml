@@ -3,6 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BorschISmetanka.Views.MenuPage"
              Title="Меню">
+    <ScrollView>
+        <ScrollView.GestureRecognizers>
+            <SwipeGestureRecognizer Direction="Left"/>
+        </ScrollView.GestureRecognizers>
     <Grid Margin="0,6,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -13,8 +17,11 @@
             <StackLayout x:Name="ButtonStack" Orientation="Horizontal">
             </StackLayout>
         </ScrollView>
-        <ScrollView x:Name="menuSV" Grid.Row="1" Padding="10">
-            
+        <ScrollView x:Name="menuSV" Grid.Row="1">
+            <ScrollView.GestureRecognizers>
+                <SwipeGestureRecognizer Direction="Left" />
+                <SwipeGestureRecognizer Direction="Right" />
+                </ScrollView.GestureRecognizers>
         </ScrollView>
         <!--<CarouselView x:Name="productCarousel" ItemsSource="{Binding recipes_cat}" Grid.Row="1" WidthRequest="100" PeekAreaInsets="1" PositionChanged="OnPositionChange" FlowDirection="MatchParent" ItemsUpdatingScrollMode="KeepLastItemInView" Loop="True">
             <CarouselView.ItemTemplate>
@@ -25,4 +32,5 @@
             </CarouselView.ItemTemplate>
         </CarouselView>-->
     </Grid>
+    </ScrollView>
 </ContentPage>

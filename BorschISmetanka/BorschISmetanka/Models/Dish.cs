@@ -10,16 +10,20 @@ namespace BorschISmetanka.Views
 {
     public class Dish
     {
-        [JsonProperty("name")]
+        [JsonProperty("id")]
+        public int id {get;set;}
+        [JsonProperty("D_Title")]
         public string name { get; set; }
+
         [JsonProperty("description")]
         public string description { get; set; }
         [JsonProperty("image")]
         public Uri image { get; set; }
-        [JsonProperty("price")]
-        public int price { get; set; }
-        [JsonProperty("count")]
-        public int count { get; set; }
+        [JsonProperty("D_Price")]
+        public int price { get; set; }        
+        [JsonProperty("Category")]
+        public string category { get; set; }//раздел в меню
+        public int count { get; set; }//количество, применяется при добавлении в корзину
         public Dish()
         {
             

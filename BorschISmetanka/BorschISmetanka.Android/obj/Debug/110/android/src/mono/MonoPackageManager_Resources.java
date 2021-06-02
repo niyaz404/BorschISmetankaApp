@@ -7,6 +7,7 @@ public class MonoPackageManager_Resources {
 		"FormsViewGroup.dll",
 		"Microsoft.Bcl.AsyncInterfaces.dll",
 		"Newtonsoft.Json.dll",
+		"Plugin.Geolocator.dll",
 		"Plugin.Permissions.dll",
 		"System.Text.Encodings.Web.dll",
 		"System.Text.Json.dll",

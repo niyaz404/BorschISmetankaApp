@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,15 +21,36 @@ namespace BorschISmetanka.Views
         static BonusPage bonusPage;
         static ProfileSetPage setPage;
 
+        protected override bool OnBackButtonPressed()
+        {
+            return true;// base.OnBackButtonPressed();
+        }
+
         public ProfilePage()
         {            
             InitializeComponent();
             BuildPage();
+           
         }
         protected override void OnAppearing()
         {
             base.OnAppearing();
             RefreshLabel();
+            backButtonBehavior.Command = new Command (async ()  =>
+            {
+                var result = await DisplayActionSheet("Вы хотите выйти из аккаунта", "Да", "Нет");
+                if (result == "Да")
+                {
+                    using (FileStream stream = File.Create(App.userCachePath));
+                    App.USER = null;
+                    OrderPage.needToRefresh = true;
+                    await Shell.Current.GoToAsync("///Login");
+                }
+            });
+        }
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
         }
         void RefreshLabel()
         {
@@ -81,7 +104,7 @@ namespace BorschISmetanka.Views
         }
         private async void AddressBtn_Click(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(addressPage);            
+            await Navigation.PushAsync(new AddressListPage());            
         }
         private async void BonusBtn_Click(object sender, EventArgs e)
         {

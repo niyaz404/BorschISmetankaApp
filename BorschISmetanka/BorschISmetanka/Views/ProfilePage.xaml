@@ -3,6 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BorschISmetanka.Views.ProfilePage"
              Title="Профиль">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior x:Name="backButtonBehavior" IconOverride="icon_exit.png"/>
+    </Shell.BackButtonBehavior>
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>

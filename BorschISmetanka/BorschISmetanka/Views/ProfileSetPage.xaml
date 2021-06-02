@@ -7,9 +7,9 @@
         <Label Text="Имя" FontSize="14" Padding="19,15,0,0"  HorizontalOptions="Start" VerticalOptions="Center"/>
         <Entry x:Name="userName" FontSize="15" Margin="15,0,15,0" TextColor="Black" IsEnabled="False"/>
         <Label Text="Телефон" FontSize="14" Padding="19,10,0,0" HorizontalOptions="Start" VerticalOptions="Center"/>
-        <Entry x:Name="userNum" FontSize="15" Margin="15,0,15,0" TextColor="Black"/>
+        <Entry x:Name="userNum" FontSize="15" Margin="15,0,15,0" TextColor="Black" MaxLength="11" Keyboard="Numeric" IsEnabled="False"/>
         <Label Text="E-mail" FontSize="14" Padding="19,10,0,0" HorizontalOptions="Start" VerticalOptions="Center"/>
-        <Entry x:Name="userEmail" FontSize="15" Margin="15,0,15,0" TextColor="Black"/>
+        <Entry x:Name="userEmail" FontSize="15" Margin="15,0,15,0" TextColor="Black" Keyboard="Email"/>
         <Label Text="День рождения" FontSize="14" Padding="19,10,0,0" HorizontalOptions="Start" VerticalOptions="Center"/>
         <Entry x:Name="userBday" FontSize="15" Margin="15,0,15,0" TextColor="Black" IsEnabled="False"/>
         <BoxView Color="Silver"
@@ -21,11 +21,12 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Label Text="Получать от Нас новости" TextColor="Black" FontSize="15" Grid.Column="0"/>
-            <Switch x:Name="switchSubscribe" Grid.Column="1" HorizontalOptions="End"/>
+            <Switch x:Name="switchSubscribe" Grid.Column="1" HorizontalOptions="End" ThumbColor="LightGray" OnColor="LimeGreen"/>
         </Grid>
         <BoxView Color="Silver"
                  VerticalOptions="End"
                  HeightRequest="1"/>
+        <!--<Label x:Name="errorLabel"  TextColor="Red" HorizontalOptions="Center"/>-->
         <Grid Padding="15,20,10,15">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
